@@ -9,6 +9,13 @@ SET(CMAKE_CXX_FLAGS "/wd4267 /wd4530 /wd4312")
 
 ADD_COMPILE_OPTIONS("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 ADD_COMPILE_OPTIONS("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
+add_compile_options(
+    "$<$<CONFIG:Debug>:/MTd>"
+    "$<$<CONFIG:RelWithDebInfo>:/MT>"
+    "$<$<CONFIG:Release>:/MT>"
+    "$<$<CONFIG:MinSizeRel>:/MT>"
+)
 ```
 
 target
@@ -37,11 +44,19 @@ target
 SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 ```
 
+## include
+
+project
+
+```
+INCLUDE_DIRECTORIES(libpath/include)
+```
 ## definitions
 
 project
 
 ```
+ADD_DEFINITIONS(-DHOGE)
 ```
 
 target

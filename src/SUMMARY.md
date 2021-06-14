@@ -1,5 +1,7 @@
 # Summary
 
+[index](./prefix.md)
+
 # CMakeLists.txt
 
 - [minimal](./minimal.md)
@@ -8,9 +10,12 @@
 - [lib](./lib.md)
 - [compile](./compile.md)
 - [link](./link.md)
+- [variables](./variables.md)
 
 # Configure
 
 - [configure](./configure.md)
 
 # Build
+
+- [build](./build.md)

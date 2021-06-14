@@ -1,5 +1,9 @@
 # configure
 
+```
+$ cmake [<options>] -S <path-to-source> -B <path-to-build>
+```
+
 ## Generator
 
 `-G "Visual Studio 15 2017 Win64`
