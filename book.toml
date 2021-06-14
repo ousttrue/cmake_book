@@ -1,0 +1,6 @@
+[book]
+authors = ["ousttrue"]
+language = "ja"
+multilingual = false
+src = "src"
+title = "CMake book"
