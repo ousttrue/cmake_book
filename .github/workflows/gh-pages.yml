@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
