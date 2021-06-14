@@ -4,3 +4,5 @@ language = "ja"
 multilingual = false
 src = "src"
 title = "CMake book"
+
+base_url = "https://ousttrue.github.io/cmake_book/"
