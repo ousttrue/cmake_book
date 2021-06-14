@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>compile - CMake book</title>
+        <title>index - CMake book</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix.html">index</a></li><li class="chapter-item expanded affix "><li class="part-title">CMakeLists.txt</li><li class="chapter-item expanded "><a href="minimal.html"><strong aria-hidden="true">1.</strong> minimal</a></li><li class="chapter-item expanded "><a href="output.html"><strong aria-hidden="true">2.</strong> output_folder</a></li><li class="chapter-item expanded "><a href="executable.html"><strong aria-hidden="true">3.</strong> executable</a></li><li class="chapter-item expanded "><a href="lib.html"><strong aria-hidden="true">4.</strong> lib</a></li><li class="chapter-item expanded "><a href="compile.html" class="active"><strong aria-hidden="true">5.</strong> compile</a></li><li class="chapter-item expanded "><a href="link.html"><strong aria-hidden="true">6.</strong> link</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">7.</strong> variables</a></li><li class="chapter-item expanded affix "><li class="part-title">Configure</li><li class="chapter-item expanded "><a href="configure.html"><strong aria-hidden="true">8.</strong> configure</a></li><li class="chapter-item expanded affix "><li class="part-title">Build</li><li class="chapter-item expanded "><a href="build.html"><strong aria-hidden="true">9.</strong> build</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix.html">index</a></li><li class="chapter-item expanded affix "><li class="part-title">CMakeLists.txt</li><li class="chapter-item expanded "><a href="minimal.html"><strong aria-hidden="true">1.</strong> minimal</a></li><li class="chapter-item expanded "><a href="output.html"><strong aria-hidden="true">2.</strong> output_folder</a></li><li class="chapter-item expanded "><a href="executable.html"><strong aria-hidden="true">3.</strong> executable</a></li><li class="chapter-item expanded "><a href="lib.html"><strong aria-hidden="true">4.</strong> lib</a></li><li class="chapter-item expanded "><a href="compile.html"><strong aria-hidden="true">5.</strong> compile</a></li><li class="chapter-item expanded "><a href="link.html"><strong aria-hidden="true">6.</strong> link</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">7.</strong> variables</a></li><li class="chapter-item expanded affix "><li class="part-title">Configure</li><li class="chapter-item expanded "><a href="configure.html"><strong aria-hidden="true">8.</strong> configure</a></li><li class="chapter-item expanded affix "><li class="part-title">Build</li><li class="chapter-item expanded "><a href="build.html"><strong aria-hidden="true">9.</strong> build</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,67 +143,14 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="compile"><a class="header" href="#compile">compile</a></h1>
-<h2 id="options"><a class="header" href="#options">options</a></h2>
-<p>project</p>
-<pre><code>SET(CMAKE_CXX_FLAGS &quot;/wd4267 /wd4530 /wd4312&quot;)
-
-ADD_COMPILE_OPTIONS(&quot;$&lt;$&lt;C_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;)
-ADD_COMPILE_OPTIONS(&quot;$&lt;$&lt;CXX_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;)
-
-add_compile_options(
-    &quot;$&lt;$&lt;CONFIG:Debug&gt;:/MTd&gt;&quot;
-    &quot;$&lt;$&lt;CONFIG:RelWithDebInfo&gt;:/MT&gt;&quot;
-    &quot;$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;&quot;
-    &quot;$&lt;$&lt;CONFIG:MinSizeRel&gt;:/MT&gt;&quot;
-)
-</code></pre>
-<p>target</p>
-<pre><code>TARGET_COMPILE_OPTIONS(${TARGET_NAME}
-PRIVATE
-    /wd4251 
-    /wd4996 
-    /wd4005
-)
-</code></pre>
-<h2 id="c-standard"><a class="header" href="#c-standard">c++ standard</a></h2>
-<p>project</p>
-<pre><code>SET(CMAKE_CXX_STANDARD 17)
-SET(CMAKE_CXX_STANDARD 20)
-</code></pre>
-<p>target</p>
-<pre><code>SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
-</code></pre>
-<h2 id="include"><a class="header" href="#include">include</a></h2>
-<p>project</p>
-<pre><code>INCLUDE_DIRECTORIES(libpath/include)
-</code></pre>
-<h2 id="definitions"><a class="header" href="#definitions">definitions</a></h2>
-<p>project</p>
-<pre><code>ADD_DEFINITIONS(-DHOGE)
-</code></pre>
-<p>target</p>
-<pre><code>TARGET_COMPILE_DEFINITIONS(${TARGET_NAME}
-PRIVATE
-    DLL_EXPORT
-PUBLIC
-    WIN32
-    _WINDOWS
-    USING_GENERATED_CONFIG_H
-    $&lt;$&lt;NOT:$&lt;CONFIG:Debug&gt;&gt;:NDEBUG&gt;
-    $&lt;$&lt;CONFIG:Debug&gt;:_DEBUG&gt;
-)        
-</code></pre>
+                        <h1 id="index"><a class="header" href="#index">index</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="lib.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
                         
-                                                    <a rel="next" href="link.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="minimal.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -213,11 +160,8 @@ PUBLIC
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="lib.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
                 
-                                    <a rel="next" href="link.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="minimal.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>
