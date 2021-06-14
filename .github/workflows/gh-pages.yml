@@ -1,11 +1,5 @@
 name: github pages
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-
+on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
