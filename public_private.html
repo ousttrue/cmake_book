@@ -145,17 +145,21 @@
                     <main>
                         <h1 id="public_private"><a class="header" href="#public_private">public_private</a></h1>
 <p>public 指定した設定は、link した外にも伝搬するぽい。</p>
-<pre><code>TARGET_INCLUDE_DIRECTORIES(SOME_LIB
-PRIVATE
-    private_include_dir
-PUBLIC
-    public_include_dir
-)
-</code></pre>
 <p>例えば、ライブラリに対して include パスを設定するときに、
 ライブラリのビルドのみで使う場合は <code>private</code> 、
 ライブラリのユーザーにも公開したい場合は <code>public</code> とする。</p>
-<pre><code>TARGET_LINK_LIBRARIES(USER
+<pre><code># library
+
+TARGET_INCLUDE_DIRECTORIES(SOME_LIB
+PRIVATE
+    private_include_dir # user には不要
+PUBLIC
+    public_include_dir # user の include path にも追加したい
+)
+</code></pre>
+<pre><code># library user
+
+TARGET_LINK_LIBRARIES(USER
     SOME_LIB # public 設定を取り込むことができる
 )
 </code></pre>
