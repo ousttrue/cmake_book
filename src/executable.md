@@ -1,12 +1,7 @@
 # executable
 
-## glob
+## WinMain
 
 ```
-FILE(GLOB SRC
-    *.cpp
-    *.h
-) 
- 
-ADD_EXECUTABLE(hello ${SRC})
+ADD_EXECUTABLE(hello WIN32 ${SRC})
 ```

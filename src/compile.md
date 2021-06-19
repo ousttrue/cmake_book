@@ -1,6 +1,15 @@
 # compile
 
+`INCLUDE_DIRECTORIES, ADD_DEFINITIONS, ADD_COMPILE_OPTIONS...` は古代のやり方でプロジェクト全体に対するグローバル設定となる。
+`add_executable`, `add_library` より前に設定すること。
+
+最近は、 `TARGET_INCLUDE_DIRECTORIES, TARGET_COMPILE_DEFINITIONS, TARGET_COMPILE_OPTIONS...` をなるべく使う。
+稀に、複数のターゲットにまとめて設定したいときに使う。
+
 ## options
+
+コンパイルのコマンドラインオプションを直接設定する。
+include や definition などは専用のコマンドがあるのでそちらを使った方が良い。
 
 project
 
@@ -51,7 +60,18 @@ project
 ```
 INCLUDE_DIRECTORIES(libpath/include)
 ```
+
+target
+
+```
+TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
+    ${BOOST_DIR}
+)
+```
+
 ## definitions
+
+２つのコマンドの `-D` の有無に注意。
 
 project
 
@@ -72,4 +92,9 @@ PUBLIC
     $<$<NOT:$<CONFIG:Debug>>:NDEBUG>
     $<$<CONFIG:Debug>:_DEBUG>
 )        
+
+# -Dなし
+TARGET_COMPILE_DEFINITIONS(TARGET PUBLIC
+    WITH_OPENCV2=1
+    )
 ```
