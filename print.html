@@ -153,9 +153,9 @@ find に頼らずに CMakeLists.txt を自前で手書きする方向性。</p>
 </ul>
 <p>で運用している。</p>
 <h1 id="本家サイト"><a class="header" href="#本家サイト">本家サイト</a></h1>
-<p>https://cmake.org/</p>
+<p><a href="https://cmake.org/">https://cmake.org/</a></p>
 <ul>
-<li>https://cmake.org/documentation/</li>
+<li><a href="https://cmake.org/documentation/">https://cmake.org/documentation/</a></li>
 </ul>
 <h1 id="その他"><a class="header" href="#その他">その他</a></h1>
 <h2 id="cmake-のコマンドに大文字小文字の区別はない"><a class="header" href="#cmake-のコマンドに大文字小文字の区別はない">CMake のコマンドに大文字小文字の区別はない</a></h2>
@@ -170,11 +170,15 @@ SET(hoge x)
 <pre><code>SET(SRC main.cpp)
 SET(SRC &quot;main.cpp&quot;)
 
-# 使う
+# 使う ${VAR_NAME} とする
 
 ADD_EXECUTABLE(hello
 ${SRC}
 )
+
+# ${PROJECT_NAME}
+# ${CMAKE_CURRENT_LISTS_DIR}
+# のような自動定義の変数も同様
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="basic"><a class="header" href="#basic">basic</a></h1>
 <h2 id="minimal"><a class="header" href="#minimal">minimal</a></h2>
@@ -379,7 +383,8 @@ TARGET_LINK_LIBRARIES(USER
     SOME_LIB # public 設定を取り込むことができる
 )
 </code></pre>
-<p>特殊な場合に、 <code>interface</code> がある。</p>
+<p>ビルド済みや HeaderOnly に対して <code>ADD_LIBRARY</code> する場合向けに <code>interface</code> がある。</p>
+<h2 id="todo-使用例"><a class="header" href="#todo-使用例">TODO: 使用例</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">variables</a></h1>
 <p><code>${PROJECT_NAME}</code></p>
 <p><code>${CMAKE_SOURCE_DIR}</code>
