@@ -9,9 +9,9 @@ find に頼らずに CMakeLists.txt を自前で手書きする方向性。
 
 # 本家サイト
 
-https://cmake.org/
+<https://cmake.org/>
 
-* https://cmake.org/documentation/
+* <https://cmake.org/documentation/>
 
 # その他
 
@@ -33,9 +33,14 @@ SET(hoge x)
 SET(SRC main.cpp)
 SET(SRC "main.cpp")
 
-# 使う
+# 使う ${VAR_NAME} とする
 
 ADD_EXECUTABLE(hello
 ${SRC}
 )
+
+# ${PROJECT_NAME}
+# ${CMAKE_CURRENT_LISTS_DIR}
+# のような自動定義の変数も同様
 ```
+
