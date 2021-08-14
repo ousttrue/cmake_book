@@ -211,6 +211,28 @@ TARGET_COMPILE_DEFINITIONS(TARGET PUBLIC
     WITH_OPENCV2=1
     )
 </code></pre>
+<h2 id="precompile-header"><a class="header" href="#precompile-header">precompile header</a></h2>
+<pre><code>target_precompile_headers(Nvy PUBLIC
+    &lt;cassert&gt;
+    &lt;cmath&gt;
+    &lt;cstdint&gt;
+    &lt;cstdio&gt;
+    &lt;windows.h&gt;
+    &lt;d3d11_4.h&gt;
+    &lt;d2d1_3.h&gt;
+    &lt;d2d1_3helper.h&gt;
+    &lt;dwrite_3.h&gt;
+    &lt;shellscalingapi.h&gt;
+    &lt;dwmapi.h&gt;
+    
+    &quot;src/third_party/mpack/mpack.h&quot;
+
+    &quot;src/common/dx_helper.h&quot;
+    &quot;src/common/mpack_helper.h&quot;
+    &quot;src/common/vec.h&quot;
+    &quot;src/common/window_messages.h&quot;
+)
+</code></pre>
 
                     </main>
 
