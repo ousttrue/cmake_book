@@ -27,3 +27,24 @@
 ```
 %USERPROFILE%\AppData\Local\CMakeTools\cmake-tools-kits.json
 ```
+
+## cland
+
+```json
+    "cmake.generator": "Ninja",
+    "cmake.configureArgs": [
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    ],
+```
+
+## formatter
+
+<https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format>
+
+```
+> pip install cmake-format
+```
+
+```json
+   "cmakeFormat.exePath": "C:/Python38/Scripts/cmake-format.exe"
+```

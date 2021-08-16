@@ -8,13 +8,16 @@
 
 ## options
 
-コンパイルのコマンドラインオプションを直接設定する。
+コンパイラのコマンドラインオプションを直接設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。
 
 project
 
 ```
-SET(CMAKE_CXX_FLAGS "/wd4267 /wd4530 /wd4312")
+# vc の警告抑止
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312")
+# 👇 ADD_COMPILE_OPTIONS の方がよい
+ADD_COMPILE_OPTIONS(/wd4267 /wd4530 /wd4312)
 
 ADD_COMPILE_OPTIONS("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 ADD_COMPILE_OPTIONS("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
@@ -25,6 +28,15 @@ add_compile_options(
     "$<$<CONFIG:Release>:/MT>"
     "$<$<CONFIG:MinSizeRel>:/MT>"
 )
+
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  # using GCC
+  add_compile_options(-Wall -Wno-unknown-pragmas -Wno-switch)
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+  # using Visual Studio C++
+  # cp932 の Windows でutf-8 のソースコードを使う
+  add_compile_options(/source-charset:utf-8)
+endif()
 ```
 
 target
