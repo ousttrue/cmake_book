@@ -144,6 +144,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="interface"><a class="header" href="#interface">interface</a></h1>
+<p>header only のライブラリやビルド済みのライブラリを記述する</p>
+<pre><code># Catch2 header only
+add_library(catch INTERFACE)
+target_include_directories(catch INTERFACE ${CMAKE_CURRENT_LIST_DIR})
+target_compile_options(catch INTERFACE /wd4996)
+</code></pre>
+<pre><code># ASIO header only
+add_library(asio INTERFACE)
+target_include_directories(asio INTERFACE asio/asio/include)
+</code></pre>
 
                     </main>
 
