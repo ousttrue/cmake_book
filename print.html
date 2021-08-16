@@ -280,10 +280,13 @@ src.cpp
 <p>最近は、 <code>TARGET_INCLUDE_DIRECTORIES, TARGET_COMPILE_DEFINITIONS, TARGET_COMPILE_OPTIONS...</code> をなるべく使う。
 稀に、複数のターゲットにまとめて設定したいときに使う。</p>
 <h2 id="options"><a class="header" href="#options">options</a></h2>
-<p>コンパイルのコマンドラインオプションを直接設定する。
+<p>コンパイラのコマンドラインオプションを直接設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。</p>
 <p>project</p>
-<pre><code>SET(CMAKE_CXX_FLAGS &quot;/wd4267 /wd4530 /wd4312&quot;)
+<pre><code># vc の警告抑止
+SET(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312&quot;)
+# 👇 ADD_COMPILE_OPTIONS の方がよい
+ADD_COMPILE_OPTIONS(/wd4267 /wd4530 /wd4312)
 
 ADD_COMPILE_OPTIONS(&quot;$&lt;$&lt;C_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;)
 ADD_COMPILE_OPTIONS(&quot;$&lt;$&lt;CXX_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;)
@@ -294,6 +297,15 @@ add_compile_options(
     &quot;$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;&quot;
     &quot;$&lt;$&lt;CONFIG:MinSizeRel&gt;:/MT&gt;&quot;
 )
+
+if(&quot;${CMAKE_CXX_COMPILER_ID}&quot; STREQUAL &quot;GNU&quot;)
+  # using GCC
+  add_compile_options(-Wall -Wno-unknown-pragmas -Wno-switch)
+elseif(&quot;${CMAKE_CXX_COMPILER_ID}&quot; STREQUAL &quot;MSVC&quot;)
+  # using Visual Studio C++
+  # cp932 の Windows でutf-8 のソースコードを使う
+  add_compile_options(/source-charset:utf-8)
+endif()
 </code></pre>
 <p>target</p>
 <pre><code>TARGET_COMPILE_OPTIONS(${TARGET_NAME}
@@ -465,6 +477,18 @@ set CMAKE=&quot;%InstallDir%\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\
 </code></pre>
 <h2 id="toolkit"><a class="header" href="#toolkit">toolkit</a></h2>
 <pre><code>%USERPROFILE%\AppData\Local\CMakeTools\cmake-tools-kits.json
+</code></pre>
+<h2 id="cland"><a class="header" href="#cland">cland</a></h2>
+<pre><code class="language-json">    &quot;cmake.generator&quot;: &quot;Ninja&quot;,
+    &quot;cmake.configureArgs&quot;: [
+        &quot;-DCMAKE_EXPORT_COMPILE_COMMANDS=1&quot;,
+    ],
+</code></pre>
+<h2 id="formatter"><a class="header" href="#formatter">formatter</a></h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format">https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format</a></p>
+<pre><code>&gt; pip install cmake-format
+</code></pre>
+<pre><code class="language-json">   &quot;cmakeFormat.exePath&quot;: &quot;C:/Python38/Scripts/cmake-format.exe&quot;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vcpkg"><a class="header" href="#vcpkg">vcpkg</a></h1>
 <pre><code>-DCMAKE_PREFIX_PATH=${env:VCPKG_DIR}/installed/x64-windows
