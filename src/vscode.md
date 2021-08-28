@@ -24,9 +24,9 @@
 
 ## toolkit
 
-```
-%USERPROFILE%\AppData\Local\CMakeTools\cmake-tools-kits.json
-```
+* `%USERPROFILE%\AppData\Local\CMakeTools\cmake-tools-kits.json`
+
+* `~/.local/share/CMakeTools/cmake-tools-kits.json`
 
 ## cland
 

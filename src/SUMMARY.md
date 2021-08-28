@@ -17,13 +17,11 @@
 - [debug_release](./debug_release.md)
 - [find_package](./find_package.md)
 
-# Configure
+# CommandLine
 
 - [configure](./configure.md)
-
-# Build
-
 - [build](./build.md)
+- [install](./install.md)
 
 # Tools
 
