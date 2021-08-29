@@ -6,14 +6,14 @@
 
 - [basic](./basic.md)
 - [output_folder](./output.md)
-- [executable](./executable.md)
-- [glob](./glob.md)
-- [lib](./lib.md)
+- [source](./source.md)
+  - [glob](./glob.md)
+  - [lib](./lib.md)
 - [compile](./compile.md)
 - [link](./link.md)
 - [public_private](./public_private.md)
 - [variables](./variables.md)
-- [interface](./interface.md)
+  - [interface](./interface.md)
 - [debug_release](./debug_release.md)
 - [find_package](./find_package.md)
 
@@ -31,3 +31,4 @@
 
 - [qt6](./qt6.md)
 - [blender](./blender.md)
+
