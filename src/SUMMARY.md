@@ -19,9 +19,7 @@
 
 # CommandLine
 
-- [configure](./configure.md)
-- [build](./build.md)
-- [install](./install.md)
+- [commandline](./commandline.md)
 
 # Tools
 
