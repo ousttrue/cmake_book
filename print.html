@@ -462,19 +462,33 @@ TARGET_LINK_LIBRARIES(USER
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="find_package"><a class="header" href="#find_package">find_package</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="commandline"><a class="header" href="#commandline">commandline</a></h1>
-<h2 id="configure"><a class="header" href="#configure">configure</a></h2>
-<pre><code>$ cmake [&lt;options&gt;] -S &lt;path-to-source&gt; -B &lt;path-to-build&gt; -G Ninja
+<h2 id="build_typeconfig"><a class="header" href="#build_typeconfig">BUILD_TYPE/config</a></h2>
+<p>config 切り替えのあるジェネレーターでは <code>-DCMAKE_BUILD_TYPE=Release</code> はあとで指定できる。</p>
+<pre><code>$ cmake [&lt;options&gt;] -S &lt;path-to-source&gt; -B &lt;path-to-build&gt; -G Ninja -DCMAKE_BUILD_TYPE=Release
 </code></pre>
+<ul>
+<li>Debug(default)</li>
+<li>Release</li>
+<li>MinSizeRel </li>
+<li>RelWithDebInfo </li>
+</ul>
 <h3 id="generator"><a class="header" href="#generator">Generator</a></h3>
-<p><code>-G &quot;Visual Studio 15 2017 Win64</code></p>
-<p><code>-G &quot;Visual Studio 16 2019&quot; -A x64</code></p>
-<p><code>-G Ninja</code></p>
+<ul>
+<li><code>-G &quot;Visual Studio 15 2017 Win64&quot;</code>: Config 切り替えあり</li>
+<li><code>-G &quot;Visual Studio 16 2019&quot; -A x64</code>: Config 切り替えあり</li>
+<li><code>-G Ninja</code> </li>
+<li><code>-G &quot;Unix Makefiles&quot;</code> </li>
+</ul>
 <h2 id="build"><a class="header" href="#build">build</a></h2>
 <pre><code>$ cmake --build &lt;path-to-build&gt; --config Release
 </code></pre>
+<p>config は切り替えのあるジェネレーターでは指定できる。
+そうでなければ configure に <code>-DCMAKE_BUILD_TYPE=Release</code> と指定する。</p>
 <h2 id="install"><a class="header" href="#install">install</a></h2>
-<pre><code>$ cmake --install &lt;path-to-build&gt; --prefix DST_DIRECTORY
+<pre><code>$ cmake --install &lt;path-to-build&gt; --config Release --prefix DST_DIRECTORY
 </code></pre>
+<p>config は切り替えのあるジェネレーターでは指定できる。
+そうでなければ configure に <code>-DCMAKE_BUILD_TYPE=Release</code> と指定する。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="exe"><a class="header" href="#exe">exe</a></h1>
 <h2 id="visualstudio"><a class="header" href="#visualstudio">VisualStudio</a></h2>
 <p>最近の vc は CMake を同梱している。
