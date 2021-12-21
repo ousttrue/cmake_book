@@ -1,226 +1,229 @@
-<!DOCTYPE HTML>
-<html lang="ja" class="sidebar-visible no-js light">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>index - CMake book</title>
-                
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-        <!-- Custom HTML head -->
-        
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMakeBook &mdash; cmakebook  ドキュメント</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="CMakeLists.txt の記述" href="cmakelists/index.html" /> 
+</head>
 
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
-        
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
-        
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-        
-            </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('light')
-            html.classList.add(theme);
-            html.classList.add('js');
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix.html">index</a></li><li class="chapter-item expanded affix "><li class="part-title">CMakeLists.txt</li><li class="chapter-item expanded "><a href="basic.html"><strong aria-hidden="true">1.</strong> basic</a></li><li class="chapter-item expanded "><a href="output.html"><strong aria-hidden="true">2.</strong> output_folder</a></li><li class="chapter-item expanded "><a href="source.html"><strong aria-hidden="true">3.</strong> source</a></li><li class="chapter-item expanded "><a href="compile.html"><strong aria-hidden="true">4.</strong> compile</a></li><li class="chapter-item expanded "><a href="link.html"><strong aria-hidden="true">5.</strong> link</a></li><li class="chapter-item expanded "><a href="public_private.html"><strong aria-hidden="true">6.</strong> public_private</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">7.</strong> variables</a></li><li class="chapter-item expanded "><a href="debug_release.html"><strong aria-hidden="true">8.</strong> debug_release</a></li><li class="chapter-item expanded "><a href="find_package.html"><strong aria-hidden="true">9.</strong> find_package</a></li><li class="chapter-item expanded affix "><li class="part-title">CommandLine</li><li class="chapter-item expanded "><a href="commandline.html"><strong aria-hidden="true">10.</strong> commandline</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="exe.html"><strong aria-hidden="true">11.</strong> exe</a></li><li class="chapter-item expanded "><a href="vscode.html"><strong aria-hidden="true">12.</strong> vscode</a></li><li class="chapter-item expanded "><a href="vcpkg.html"><strong aria-hidden="true">13.</strong> vcpkg</a></li><li class="chapter-item expanded affix "><li class="part-title">specific</li><li class="chapter-item expanded "><a href="qt6.html"><strong aria-hidden="true">14.</strong> qt6</a></li><li class="chapter-item expanded "><a href="blender.html"><strong aria-hidden="true">15.</strong> blender</a></li></ol>            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
-                    <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                                            </div>
-
-                    <h1 class="menu-title">CMake book</h1>
-
-                    <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
-                                                                        
-                    </div>
-                </div>
-
-                                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <p>CMake する備忘録。手元のメモを集約。
-主に Windows で作業するため、
-find に頼らずに CMakeLists.txt を自前で手書きする方向性。</p>
-<ul>
-<li>Visual C++ ビルドツール 2019</li>
-<li>vscode</li>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> cmakebook
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="cmakelists/index.html">CMakeLists.txt の記述</a></li>
 </ul>
-<p>で運用している。</p>
-<h1 id="本家サイト"><a class="header" href="#本家サイト">本家サイト</a></h1>
-<p><a href="https://cmake.org/">https://cmake.org/</a></p>
 <ul>
-<li><a href="https://cmake.org/documentation/">https://cmake.org/documentation/</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">Commandline</a></li>
 </ul>
-<h1 id="その他"><a class="header" href="#その他">その他</a></h1>
-<h2 id="cmake-のコマンドに大文字小文字の区別はない"><a class="header" href="#cmake-のコマンドに大文字小文字の区別はない">CMake のコマンドに大文字小文字の区別はない</a></h2>
-<pre><code class="language-CMakeLists.txt">set(hoge x)
-
-# 同じ
-
-SET(hoge x)
-</code></pre>
-<h2 id="変数"><a class="header" href="#変数">変数</a></h2>
-<p>スペースを含まない場合は、クォート不要。</p>
-<pre><code>SET(SRC main.cpp)
-SET(SRC &quot;main.cpp&quot;)
-
-# 使う ${VAR_NAME} とする
-
-ADD_EXECUTABLE(hello
-${SRC}
-)
-
-# ${PROJECT_NAME}
-# ${CMAKE_CURRENT_LISTS_DIR}
-# のような自動定義の変数も同様
-</code></pre>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                                                    <a rel="next" href="basic.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                                    <a rel="next" href="basic.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                            </nav>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="other/index.html">Other</a></li>
+</ul>
 
         </div>
+      </div>
+    </nav>
 
-        
-        
-        
-                <script type="text/javascript">
-            window.playground_copyable = true;
-        </script>
-        
-        
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">cmakebook</a>
+      </nav>
 
-        <!-- Custom JS scripts -->
-        
-        
-    </body>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>CMakeBook</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="cmakebook">
+<h1>CMakeBook<a class="headerlink" href="#cmakebook" title="このヘッドラインへのパーマリンク"></a></h1>
+<p>CMake する備忘録。手元のメモを集約。
+主に Windows で作業するため、
+findXXX に頼らずに CMakeLists.txt を自前で手書きする方向性。</p>
+<ul class="simple">
+<li><p>Visual C++ ビルドツール 2019</p></li>
+<li><p>vscode</p></li>
+</ul>
+<p>での運用を想定。</p>
+<p><a class="reference external" href="https://github.com/ousttrue/cmake_book">https://github.com/ousttrue/cmake_book</a></p>
+<ul class="simple">
+<li><p>mdBook から Sphinx + myst に乗り換え</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmake">
+<h1>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク"></a></h1>
+<p><a class="reference external" href="https://cmake.org/">https://cmake.org/</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cmake.org/documentation/">https://cmake.org/documentation/</a></p></li>
+</ul>
+<section id="id1">
+<h2>CMake のコマンドに大文字小文字の区別はない<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">hoge</span> <span class="s">x</span><span class="p">)</span>
+
+<span class="c"># 同じ</span>
+
+<span class="nb">SET</span><span class="p">(</span><span class="s">hoge</span> <span class="s">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>変数<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>スペースを含まない場合は、クォート不要。</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">SET</span><span class="p">(</span><span class="s">SRC</span> <span class="s">main.cpp</span><span class="p">)</span>
+<span class="nb">SET</span><span class="p">(</span><span class="s">SRC</span> <span class="s2">&quot;main.cpp&quot;</span><span class="p">)</span>
+
+<span class="c"># 使う ${VAR_NAME} とする</span>
+
+<span class="nb">ADD_EXECUTABLE</span><span class="p">(</span><span class="s">hello</span>
+<span class="o">${</span><span class="nv">SRC</span><span class="o">}</span>
+<span class="p">)</span>
+
+<span class="c"># ${PROJECT_NAME}</span>
+<span class="c"># ${CMAKE_CURRENT_LISTS_DIR}</span>
+<span class="c"># のような自動定義の変数も同様</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cmakelists-txt">
+<h1>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="このヘッドラインへのパーマリンク"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmakelists/index.html">CMakeLists.txt の記述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/basic.html">basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/output.html">output_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/source.html">source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/compile.html">compile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/link.html">link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/public_private.html">public_private</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/variables.html">variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/debug_release.html">debug_release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/find_package.html">find_package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="commandline">
+<h1>CommandLine<a class="headerlink" href="#commandline" title="このヘッドラインへのパーマリンク"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">Commandline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commandline.html#configure">configure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="commandline.html#buildtype">BuildType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commandline.html#generator">Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="commandline.html#build">build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commandline.html#install">install</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="このヘッドラインへのパーマリンク"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools/vswhere.html">vswhere</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tools/vswhere.html#visualstudio">VisualStudio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tools/vscode.html">vscode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#ninja">ninja</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#with-vcpkg">with vcpkg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#toolkit">toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#cland">cland</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#formatter">formatter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tools/vcpkg.html">vcpkg</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="other">
+<h1>Other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="other/index.html">Other</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="other/qt6.html">qt6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other/blender.html">blender</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cmakelists/index.html" class="btn btn-neutral float-right" title="CMakeLists.txt の記述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, ousttrue.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

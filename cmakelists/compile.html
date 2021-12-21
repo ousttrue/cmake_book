@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>compile &mdash; cmakebook  ドキュメント</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="link" href="link.html" />
+    <link rel="prev" title="source" href="source.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> cmakebook
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CMakeLists.txt の記述</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic.html">basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">output_folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">source</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">compile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#flags">flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c-standard">c++ standard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include">include</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#precompile-header">precompile header</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="public_private.html">public_private</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug_release.html">debug_release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="find_package.html">find_package</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../commandline.html">Commandline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../other/index.html">Other</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cmakebook</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">CMakeLists.txt の記述</a> &raquo;</li>
+      <li>compile</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cmakelists/compile.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="compile">
+<h1>compile<a class="headerlink" href="#compile" title="このヘッドラインへのパーマリンク"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">INCLUDE_DIRECTORIES,</span> <span class="pre">ADD_DEFINITIONS,</span> <span class="pre">ADD_COMPILE_OPTIONS...</span></code> は古代のやり方でプロジェクト全体に対するグローバル設定となる。
+<code class="docutils literal notranslate"><span class="pre">add_executable</span></code>, <code class="docutils literal notranslate"><span class="pre">add_library</span></code> より前に設定すること。</p>
+<p>最近は、 <code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIRECTORIES,</span> <span class="pre">TARGET_COMPILE_DEFINITIONS,</span> <span class="pre">TARGET_COMPILE_OPTIONS...</span></code> をなるべく使う。
+稀に、複数のターゲットにまとめて設定したいときに使う。</p>
+<section id="flags">
+<h2>flags<a class="headerlink" href="#flags" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>コンパイラのコマンドラインオプションを直接設定する。
+include や definition などは専用のコマンドがあるのでそちらを使った方が良い。</p>
+<p>project</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># vc の警告抑止</span>
+<span class="n">SET</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span> <span class="s2">&quot;$</span><span class="si">{CMAKE_CXX_FLAGS}</span><span class="s2"> /wd4267 /wd4530 /wd4312&quot;</span><span class="p">)</span>
+<span class="c1"># 👇 ADD_COMPILE_OPTIONS の方がよい</span>
+<span class="n">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="o">/</span><span class="n">wd4267</span> <span class="o">/</span><span class="n">wd4530</span> <span class="o">/</span><span class="n">wd4312</span><span class="p">)</span>
+
+<span class="n">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s2">&quot;$&lt;$&lt;C_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;</span><span class="p">)</span>
+<span class="n">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s2">&quot;$&lt;$&lt;CXX_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;</span><span class="p">)</span>
+
+<span class="n">add_compile_options</span><span class="p">(</span>
+    <span class="s2">&quot;$&lt;$&lt;CONFIG:Debug&gt;:/MTd&gt;&quot;</span>
+    <span class="s2">&quot;$&lt;$&lt;CONFIG:RelWithDebInfo&gt;:/MT&gt;&quot;</span>
+    <span class="s2">&quot;$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;&quot;</span>
+    <span class="s2">&quot;$&lt;$&lt;CONFIG:MinSizeRel&gt;:/MT&gt;&quot;</span>
+<span class="p">)</span>
+
+<span class="k">if</span><span class="p">(</span><span class="s2">&quot;$</span><span class="si">{CMAKE_CXX_COMPILER_ID}</span><span class="s2">&quot;</span> <span class="n">STREQUAL</span> <span class="s2">&quot;GNU&quot;</span><span class="p">)</span>
+  <span class="c1"># using GCC</span>
+  <span class="n">add_compile_options</span><span class="p">(</span><span class="o">-</span><span class="n">Wall</span> <span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">pragmas</span> <span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">switch</span><span class="p">)</span>
+<span class="n">elseif</span><span class="p">(</span><span class="s2">&quot;$</span><span class="si">{CMAKE_CXX_COMPILER_ID}</span><span class="s2">&quot;</span> <span class="n">STREQUAL</span> <span class="s2">&quot;MSVC&quot;</span><span class="p">)</span>
+  <span class="c1"># using Visual Studio C++</span>
+  <span class="c1"># cp932 の Windows でutf-8 のソースコードを使う</span>
+  <span class="n">add_compile_options</span><span class="p">(</span><span class="o">/</span><span class="n">source</span><span class="o">-</span><span class="n">charset</span><span class="p">:</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>target</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TARGET_COMPILE_OPTIONS(${TARGET_NAME}
+PRIVATE
+    /wd4251 
+    /wd4996 
+    /wd4005
+)
+</pre></div>
+</div>
+</section>
+<section id="c-standard">
+<h2>c++ standard<a class="headerlink" href="#c-standard" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>project</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SET</span><span class="p">(</span><span class="n">CMAKE_CXX_STANDARD</span> <span class="mi">17</span><span class="p">)</span>
+<span class="n">SET</span><span class="p">(</span><span class="n">CMAKE_CXX_STANDARD</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>target</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
+</pre></div>
+</div>
+</section>
+<section id="include">
+<h2>include<a class="headerlink" href="#include" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>project</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INCLUDE_DIRECTORIES</span><span class="p">(</span><span class="n">libpath</span><span class="o">/</span><span class="n">include</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>target</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
+    ${BOOST_DIR}
+)
+</pre></div>
+</div>
+</section>
+<section id="definitions">
+<h2>definitions<a class="headerlink" href="#definitions" title="このヘッドラインへのパーマリンク"></a></h2>
+<p>２つのコマンドの <code class="docutils literal notranslate"><span class="pre">-D</span></code> の有無に注意。</p>
+<p>project</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADD_DEFINITIONS</span><span class="p">(</span><span class="o">-</span><span class="n">DHOGE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>target</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TARGET_COMPILE_DEFINITIONS(${TARGET_NAME}
+PRIVATE
+    DLL_EXPORT
+PUBLIC
+    WIN32
+    _WINDOWS
+    USING_GENERATED_CONFIG_H
+    $&lt;$&lt;NOT:$&lt;CONFIG:Debug&gt;&gt;:NDEBUG&gt;
+    $&lt;$&lt;CONFIG:Debug&gt;:_DEBUG&gt;
+)        
+
+# -Dなし
+TARGET_COMPILE_DEFINITIONS(TARGET PUBLIC
+    WITH_OPENCV2=1
+    )
+</pre></div>
+</div>
+</section>
+<section id="precompile-header">
+<h2>precompile header<a class="headerlink" href="#precompile-header" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_precompile_headers</span><span class="p">(</span><span class="n">Nvy</span> <span class="n">PUBLIC</span>
+    <span class="o">&lt;</span><span class="n">cassert</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">cmath</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">cstdint</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">cstdio</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">windows</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">d3d11_4</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">d2d1_3</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">d2d1_3helper</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">dwrite_3</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">shellscalingapi</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">dwmapi</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
+    
+    <span class="s2">&quot;src/third_party/mpack/mpack.h&quot;</span>
+
+    <span class="s2">&quot;src/common/dx_helper.h&quot;</span>
+    <span class="s2">&quot;src/common/mpack_helper.h&quot;</span>
+    <span class="s2">&quot;src/common/vec.h&quot;</span>
+    <span class="s2">&quot;src/common/window_messages.h&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="source.html" class="btn btn-neutral float-left" title="source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="link.html" class="btn btn-neutral float-right" title="link" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, ousttrue.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

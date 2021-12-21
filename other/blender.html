@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>blender &mdash; cmakebook  ドキュメント</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="prev" title="qt6" href="qt6.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> cmakebook
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmakelists/index.html">CMakeLists.txt の記述</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../commandline.html">Commandline</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Other</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="qt6.html">qt6</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">blender</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cmakebook</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Other</a> &raquo;</li>
+      <li>blender</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/other/blender.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="blender">
+<h1>blender<a class="headerlink" href="#blender" title="このヘッドラインへのパーマリンク"></a></h1>
+<p>cmake で blender build する例</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmake.configureSettings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;PYTHON_VERSION&quot;</span><span class="p">:</span> <span class="s2">&quot;3.8.6&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;PYTHON_ROOT_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Python38&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;PYTHON_INCLUDE_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Python38/include&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;PYTHON_INCLUDE_DIRS&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Python38/include&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;LINK_DIRECTORIES&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Python38/libs&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;PYTHON_LIBRARIES&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C:/Python38/libs/python38_d.lib&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;OPTIMIZED&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;C:/Python38/libs/python38.lib&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;WITH_PYTHON_INSTALL_NUMPY&quot;</span><span class="p">:</span> <span class="s2">&quot;OFF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;WITH_AUDASPACE&quot;</span><span class="p">:</span> <span class="s2">&quot;OFF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;WITH_OPENCOLLADA&quot;</span><span class="p">:</span> <span class="s2">&quot;OFF&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;CMAKE_MAKE_PROGRAM&quot;</span><span class="p">:</span> <span class="s2">&quot;${env:VCPKG_DIR}/downloads/tools/ninja/1.10.0-windows/ninja.exe&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;cmake.generator&quot;</span><span class="p">:</span> <span class="s2">&quot;Ninja&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qt6.html" class="btn btn-neutral float-left" title="qt6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, ousttrue.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
