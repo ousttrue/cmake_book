@@ -9,6 +9,7 @@ link.md
 public_private.md
 variables.md
 debug_release.md
+custom_target.md
 find_package.md
 ```
 
