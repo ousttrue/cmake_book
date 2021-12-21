@@ -6,7 +6,7 @@
 最近は、 `TARGET_INCLUDE_DIRECTORIES, TARGET_COMPILE_DEFINITIONS, TARGET_COMPILE_OPTIONS...` をなるべく使う。
 稀に、複数のターゲットにまとめて設定したいときに使う。
 
-## options
+## flags
 
 コンパイラのコマンドラインオプションを直接設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。

@@ -28,7 +28,7 @@ src.cpp
 )
 ```
 
-## shared
+### shared
 
 DLLを作る。
 
@@ -38,7 +38,7 @@ src.cpp
 )
 ```
 
-## interface
+### interface
 
 header only のライブラリやビルド済みのライブラリを記述する。
 

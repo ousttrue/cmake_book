@@ -1,23 +1,28 @@
+# CMakeBook
+
 CMake する備忘録。手元のメモを集約。
 主に Windows で作業するため、
-find に頼らずに CMakeLists.txt を自前で手書きする方向性。
+findXXX に頼らずに CMakeLists.txt を自前で手書きする方向性。
 
 * Visual C++ ビルドツール 2019
 * vscode
 
-で運用している。
+での運用を想定。
 
-# 本家サイト
+<https://github.com/ousttrue/cmake_book>
+
+* mdBook から Sphinx + myst に乗り換え
+
+# CMake
 
 <https://cmake.org/>
 
 * <https://cmake.org/documentation/>
 
-# その他
 
 ## CMake のコマンドに大文字小文字の区別はない
 
-```CMakeLists.txt
+```cmake
 set(hoge x)
 
 # 同じ
@@ -29,7 +34,7 @@ SET(hoge x)
 
 スペースを含まない場合は、クォート不要。
 
-```
+```cmake
 SET(SRC main.cpp)
 SET(SRC "main.cpp")
 
@@ -42,5 +47,31 @@ ${SRC}
 # ${PROJECT_NAME}
 # ${CMAKE_CURRENT_LISTS_DIR}
 # のような自動定義の変数も同様
+```
+
+
+# CMakeLists.txt
+
+```{toctree}
+:maxdepth: 2
+cmakelists/index
+```
+
+# CommandLine
+
+```{toctree}
+commandline.md
+```
+
+# Tools
+
+```{toctree}
+tools/index
+```
+
+# Other
+
+```{toctree}
+other/index
 ```
 

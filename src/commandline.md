@@ -1,12 +1,14 @@
-# commandline
+# Commandline
 
-## BUILD_TYPE/config
+## configure
 
 config 切り替えのあるジェネレーターでは `-DCMAKE_BUILD_TYPE=Release` はあとで指定できる。
 
 ```
 $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUILD_TYPE=Release
 ```
+
+### BuildType
 
 * Debug(default)
 * Release

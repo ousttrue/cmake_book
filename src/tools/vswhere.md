@@ -1,4 +1,4 @@
-# exe
+# vswhere
 
 ## VisualStudio
 
@@ -13,3 +13,4 @@ for /f "usebackq tokens=1* delims=: " %%i in (`vswhere -latest -requires Microso
 set MSBUILD="%InstallDir%\MSBuild\15.0\Bin\MSBuild.exe"
 set CMAKE="%InstallDir%\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
 ```
+

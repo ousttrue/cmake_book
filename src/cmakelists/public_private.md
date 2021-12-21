@@ -27,5 +27,3 @@ TARGET_LINK_LIBRARIES(USER
 
 ビルド済みや HeaderOnly に対して `ADD_LIBRARY` する場合向けに `interface` がある。
 
-## TODO: 使用例
-
