@@ -1,253 +1,411 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Link" href="link.html" /><link rel="prev" title="Source" href="source.html" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>compile &mdash; cmakebook  ドキュメント</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+    <meta name="generator" content="sphinx-4.3.2, furo 2022.01.02"/>
+        <title>Compile - cmakebook ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/translations.js"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="link" href="link.html" />
-    <link rel="prev" title="source" href="source.html" /> 
-</head>
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> cmakebook
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">CMakeLists.txt の記述</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basic.html">basic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html">output_folder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source.html">source</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">compile</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#flags">flags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#c-standard">c++ standard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#include">include</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#definitions">definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#precompile-header">precompile header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="link.html">link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="public_private.html">public_private</a></li>
-<li class="toctree-l2"><a class="reference internal" href="variables.html">variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="debug_release.html">debug_release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="custom_target.html">custom target</a></li>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">cmakebook  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">cmakebook  ドキュメント</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">CMakeLists.txt</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic.html">Basic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">Output folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">Source</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Compile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="public_private.html">Public &amp; Private</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generator_expressions.html">Generator expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_target.html">Custom target</a></li>
 <li class="toctree-l2"><a class="reference internal" href="find_package.html">find_package</a></li>
 </ul>
 </li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../commandline.html">Commandline</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/index.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tools/vswhere.html">vswhere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/vscode.html">vscode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/vcpkg.html">vcpkg</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../other/index.html">Other</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../other/qt6.html">qt6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other/blender.html">blender</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../other/index.html">Other</a></li>
+</li>
 </ul>
 
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cmakebook</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">CMakeLists.txt の記述</a> &raquo;</li>
-      <li>compile</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/cmakelists/compile.md.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section class="tex2jax_ignore mathjax_ignore" id="compile">
-<h1>compile<a class="headerlink" href="#compile" title="このヘッドラインへのパーマリンク"></a></h1>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="compile">
+<h1>Compile<a class="headerlink" href="#compile" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">INCLUDE_DIRECTORIES,</span> <span class="pre">ADD_DEFINITIONS,</span> <span class="pre">ADD_COMPILE_OPTIONS...</span></code> は古代のやり方でプロジェクト全体に対するグローバル設定となる。
 <code class="docutils literal notranslate"><span class="pre">add_executable</span></code>, <code class="docutils literal notranslate"><span class="pre">add_library</span></code> より前に設定すること。</p>
 <p>最近は、 <code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIRECTORIES,</span> <span class="pre">TARGET_COMPILE_DEFINITIONS,</span> <span class="pre">TARGET_COMPILE_OPTIONS...</span></code> をなるべく使う。
 稀に、複数のターゲットにまとめて設定したいときに使う。</p>
 <section id="flags">
-<h2>flags<a class="headerlink" href="#flags" title="このヘッドラインへのパーマリンク"></a></h2>
+<h2>flags<a class="headerlink" href="#flags" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>コンパイラのコマンドラインオプションを直接設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。</p>
 <p>project</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># vc の警告抑止</span>
-<span class="n">SET</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span> <span class="s2">&quot;$</span><span class="si">{CMAKE_CXX_FLAGS}</span><span class="s2"> /wd4267 /wd4530 /wd4312&quot;</span><span class="p">)</span>
-<span class="c1"># 👇 ADD_COMPILE_OPTIONS の方がよい</span>
-<span class="n">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="o">/</span><span class="n">wd4267</span> <span class="o">/</span><span class="n">wd4530</span> <span class="o">/</span><span class="n">wd4312</span><span class="p">)</span>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># vc の警告抑止</span>
+<span class="nb">SET</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s2">"${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312"</span><span class="p">)</span>
+<span class="c"># 👇 ADD_COMPILE_OPTIONS の方がよい</span>
+<span class="nb">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s">/wd4267</span><span class="w"> </span><span class="s">/wd4530</span><span class="w"> </span><span class="s">/wd4312</span><span class="p">)</span>
 
-<span class="n">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s2">&quot;$&lt;$&lt;C_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;</span><span class="p">)</span>
-<span class="n">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s2">&quot;$&lt;$&lt;CXX_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;</span><span class="p">)</span>
+<span class="nb">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s2">"$&lt;$&lt;C_COMPILER_ID:MSVC&gt;:/utf-8&gt;"</span><span class="p">)</span>
+<span class="nb">ADD_COMPILE_OPTIONS</span><span class="p">(</span><span class="s2">"$&lt;$&lt;CXX_COMPILER_ID:MSVC&gt;:/utf-8&gt;"</span><span class="p">)</span>
 
-<span class="n">add_compile_options</span><span class="p">(</span>
-    <span class="s2">&quot;$&lt;$&lt;CONFIG:Debug&gt;:/MTd&gt;&quot;</span>
-    <span class="s2">&quot;$&lt;$&lt;CONFIG:RelWithDebInfo&gt;:/MT&gt;&quot;</span>
-    <span class="s2">&quot;$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;&quot;</span>
-    <span class="s2">&quot;$&lt;$&lt;CONFIG:MinSizeRel&gt;:/MT&gt;&quot;</span>
+<span class="nb">add_compile_options</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:Debug&gt;:/MTd&gt;"</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:RelWithDebInfo&gt;:/MT&gt;"</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;"</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:MinSizeRel&gt;:/MT&gt;"</span>
 <span class="p">)</span>
 
-<span class="k">if</span><span class="p">(</span><span class="s2">&quot;$</span><span class="si">{CMAKE_CXX_COMPILER_ID}</span><span class="s2">&quot;</span> <span class="n">STREQUAL</span> <span class="s2">&quot;GNU&quot;</span><span class="p">)</span>
-  <span class="c1"># using GCC</span>
-  <span class="n">add_compile_options</span><span class="p">(</span><span class="o">-</span><span class="n">Wall</span> <span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">pragmas</span> <span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">switch</span><span class="p">)</span>
-<span class="n">elseif</span><span class="p">(</span><span class="s2">&quot;$</span><span class="si">{CMAKE_CXX_COMPILER_ID}</span><span class="s2">&quot;</span> <span class="n">STREQUAL</span> <span class="s2">&quot;MSVC&quot;</span><span class="p">)</span>
-  <span class="c1"># using Visual Studio C++</span>
-  <span class="c1"># cp932 の Windows でutf-8 のソースコードを使う</span>
-  <span class="n">add_compile_options</span><span class="p">(</span><span class="o">/</span><span class="n">source</span><span class="o">-</span><span class="n">charset</span><span class="p">:</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">endif</span><span class="p">()</span>
+<span class="nb">if</span><span class="p">(</span><span class="s2">"${CMAKE_CXX_COMPILER_ID}"</span><span class="w"> </span><span class="s">STREQUAL</span><span class="w"> </span><span class="s2">"GNU"</span><span class="p">)</span>
+<span class="w">  </span><span class="c"># using GCC</span>
+<span class="w">  </span><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-Wall</span><span class="w"> </span><span class="s">-Wno-unknown-pragmas</span><span class="w"> </span><span class="s">-Wno-switch</span><span class="p">)</span>
+<span class="nb">elseif</span><span class="p">(</span><span class="s2">"${CMAKE_CXX_COMPILER_ID}"</span><span class="w"> </span><span class="s">STREQUAL</span><span class="w"> </span><span class="s2">"MSVC"</span><span class="p">)</span>
+<span class="w">  </span><span class="c"># using Visual Studio C++</span>
+<span class="w">  </span><span class="c"># cp932 の Windows でutf-8 のソースコードを使う</span>
+<span class="w">  </span><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">/source-charset:utf-8</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>target</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TARGET_COMPILE_OPTIONS(${TARGET_NAME}
-PRIVATE
-    /wd4251 
-    /wd4996 
-    /wd4005
-)
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">TARGET_COMPILE_OPTIONS</span><span class="p">(</span><span class="o">${</span><span class="nv">TARGET_NAME</span><span class="o">}</span>
+<span class="s">PRIVATE</span>
+<span class="w">    </span><span class="s">/wd4251</span><span class="w"> </span>
+<span class="w">    </span><span class="s">/wd4996</span><span class="w"> </span>
+<span class="w">    </span><span class="s">/wd4005</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="c-standard">
-<h2>c++ standard<a class="headerlink" href="#c-standard" title="このヘッドラインへのパーマリンク"></a></h2>
+<h2>c++ standard<a class="headerlink" href="#c-standard" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>project</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SET</span><span class="p">(</span><span class="n">CMAKE_CXX_STANDARD</span> <span class="mi">17</span><span class="p">)</span>
-<span class="n">SET</span><span class="p">(</span><span class="n">CMAKE_CXX_STANDARD</span> <span class="mi">20</span><span class="p">)</span>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">SET</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">17</span><span class="p">)</span>
+<span class="nb">SET</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">20</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>target</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">SET_PROPERTY</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="o">${</span><span class="nv">TARGET_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PROPERTY</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="include">
-<h2>include<a class="headerlink" href="#include" title="このヘッドラインへのパーマリンク"></a></h2>
+<h2>include<a class="headerlink" href="#include" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>project</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INCLUDE_DIRECTORIES</span><span class="p">(</span><span class="n">libpath</span><span class="o">/</span><span class="n">include</span><span class="p">)</span>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">INCLUDE_DIRECTORIES</span><span class="p">(</span><span class="s">libpath/include</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>target</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
-    ${BOOST_DIR}
-)
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">TARGET_INCLUDE_DIRECTORIES</span><span class="p">(</span><span class="s">HELLO</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">BOOST_DIR</span><span class="o">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="definitions">
-<h2>definitions<a class="headerlink" href="#definitions" title="このヘッドラインへのパーマリンク"></a></h2>
+<h2>definitions<a class="headerlink" href="#definitions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>２つのコマンドの <code class="docutils literal notranslate"><span class="pre">-D</span></code> の有無に注意。</p>
 <p>project</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADD_DEFINITIONS</span><span class="p">(</span><span class="o">-</span><span class="n">DHOGE</span><span class="p">)</span>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">ADD_DEFINITIONS</span><span class="p">(</span><span class="s">-DHOGE</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>target</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TARGET_COMPILE_DEFINITIONS(${TARGET_NAME}
-PRIVATE
-    DLL_EXPORT
-PUBLIC
-    WIN32
-    _WINDOWS
-    USING_GENERATED_CONFIG_H
-    $&lt;$&lt;NOT:$&lt;CONFIG:Debug&gt;&gt;:NDEBUG&gt;
-    $&lt;$&lt;CONFIG:Debug&gt;:_DEBUG&gt;
-)        
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">TARGET_COMPILE_DEFINITIONS</span><span class="p">(</span><span class="o">${</span><span class="nv">TARGET_NAME</span><span class="o">}</span>
+<span class="s">PRIVATE</span>
+<span class="w">    </span><span class="s">DLL_EXPORT</span>
+<span class="s">PUBLIC</span>
+<span class="w">    </span><span class="s">WIN32</span>
+<span class="w">    </span><span class="s">_WINDOWS</span>
+<span class="w">    </span><span class="s">USING_GENERATED_CONFIG_H</span>
+<span class="w">    </span><span class="o">$&lt;</span><span class="nv">$&lt;NOT:$&lt;CONFIG:Debug</span><span class="o">&gt;</span><span class="s">&gt;:NDEBUG&gt;</span>
+<span class="w">    </span><span class="o">$&lt;</span><span class="nv">$&lt;CONFIG:Debug</span><span class="o">&gt;</span><span class="s">:_DEBUG&gt;</span>
+<span class="p">)</span><span class="w">        </span>
 
-# -Dなし
-TARGET_COMPILE_DEFINITIONS(TARGET PUBLIC
-    WITH_OPENCV2=1
-    )
+<span class="c"># -Dなし</span>
+<span class="nb">TARGET_COMPILE_DEFINITIONS</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="s">WITH_OPENCV2=1</span>
+<span class="w">    </span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="precompile-header">
-<h2>precompile header<a class="headerlink" href="#precompile-header" title="このヘッドラインへのパーマリンク"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_precompile_headers</span><span class="p">(</span><span class="n">Nvy</span> <span class="n">PUBLIC</span>
-    <span class="o">&lt;</span><span class="n">cassert</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">cmath</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">cstdint</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">cstdio</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">windows</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">d3d11_4</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">d2d1_3</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">d2d1_3helper</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">dwrite_3</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">shellscalingapi</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">dwmapi</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span>
-    
-    <span class="s2">&quot;src/third_party/mpack/mpack.h&quot;</span>
+<h2>precompile header<a class="headerlink" href="#precompile-header" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">target_precompile_headers</span><span class="p">(</span><span class="s">Nvy</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="s">&lt;cassert&gt;</span>
+<span class="w">    </span><span class="s">&lt;cmath&gt;</span>
+<span class="w">    </span><span class="s">&lt;cstdint&gt;</span>
+<span class="w">    </span><span class="s">&lt;cstdio&gt;</span>
+<span class="w">    </span><span class="s">&lt;windows.h&gt;</span>
+<span class="w">    </span><span class="s">&lt;d3d11_4.h&gt;</span>
+<span class="w">    </span><span class="s">&lt;d2d1_3.h&gt;</span>
+<span class="w">    </span><span class="s">&lt;d2d1_3helper.h&gt;</span>
+<span class="w">    </span><span class="s">&lt;dwrite_3.h&gt;</span>
+<span class="w">    </span><span class="s">&lt;shellscalingapi.h&gt;</span>
+<span class="w">    </span><span class="s">&lt;dwmapi.h&gt;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="s2">"src/third_party/mpack/mpack.h"</span>
 
-    <span class="s2">&quot;src/common/dx_helper.h&quot;</span>
-    <span class="s2">&quot;src/common/mpack_helper.h&quot;</span>
-    <span class="s2">&quot;src/common/vec.h&quot;</span>
-    <span class="s2">&quot;src/common/window_messages.h&quot;</span>
+<span class="w">    </span><span class="s2">"src/common/dx_helper.h"</span>
+<span class="w">    </span><span class="s2">"src/common/mpack_helper.h"</span>
+<span class="w">    </span><span class="s2">"src/common/vec.h"</span>
+<span class="w">    </span><span class="s2">"src/common/window_messages.h"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
 
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="link.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Link</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="source.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Source</div>
+                
+              </div>
+            </a>
+        </div>
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="source.html" class="btn btn-neutral float-left" title="source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="link.html" class="btn btn-neutral float-right" title="link" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <div class="related-information">
+              Copyright &#169; 2021, ousttrue |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../_sources/cmakelists/compile.md.txt"
+               rel="nofollow">
+              ソースコードを表示
+            </a>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Compile</a><ul>
+<li><a class="reference internal" href="#flags">flags</a></li>
+<li><a class="reference internal" href="#c-standard">c++ standard</a></li>
+<li><a class="reference internal" href="#include">include</a></li>
+<li><a class="reference internal" href="#definitions">definitions</a></li>
+<li><a class="reference internal" href="#precompile-header">precompile header</a></li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2021, ousttrue.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
+          </div>
         </div>
       </div>
-    </section>
+      
+      
+    </aside>
   </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    </body>
 </html>

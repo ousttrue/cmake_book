@@ -50,28 +50,11 @@ ${SRC}
 ```
 
 
-# CMakeLists.txt
-
 ```{toctree}
 :maxdepth: 2
 cmakelists/index
-```
-
-# CommandLine
-
-```{toctree}
 commandline.md
-```
-
-# Tools
-
-```{toctree}
 tools/index
-```
-
-# Other
-
-```{toctree}
 other/index
 ```
 

@@ -1,4 +1,4 @@
-# CMakeLists.txt の記述
+# CMakeLists.txt
 
 ```{toctree}
 basic.md
@@ -8,7 +8,7 @@ compile.md
 link.md
 public_private.md
 variables.md
-debug_release.md
+generator_expressions.md
 custom_target.md
 find_package.md
 ```

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Commandline" href="../commandline.html" /><link rel="prev" title="Custom target" href="custom_target.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Custom target" href="custom_target.html" /><link rel="prev" title="Variables" href="variables.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2022.01.02"/>
-        <title>find_package - cmakebook ドキュメント</title>
+        <title>Generator expressions - cmakebook ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -164,9 +164,9 @@
 <li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
 <li class="toctree-l2"><a class="reference internal" href="public_private.html">Public &amp; Private</a></li>
 <li class="toctree-l2"><a class="reference internal" href="variables.html">Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generator_expressions.html">Generator expressions</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Generator expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom_target.html">Custom target</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">find_package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="find_package.html">find_package</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandline.html">Commandline</a></li>
@@ -201,28 +201,71 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="find-package">
-<h1>find_package<a class="headerlink" href="#find-package" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">Boost</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+          <section class="tex2jax_ignore mathjax_ignore" id="generator-expressions">
+<h1>Generator expressions<a class="headerlink" href="#generator-expressions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html</a></p>
+<section id="debug-release">
+<h2>debug_release<a class="headerlink" href="#debug-release" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Debug と Release で設定を切り分ける。</p>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_compile_options</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:Debug&gt;:/MTd&gt;"</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:RelWithDebInfo&gt;:/MT&gt;"</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;"</span>
+<span class="w">    </span><span class="s2">"$&lt;$&lt;CONFIG:MinSizeRel&gt;:/MT&gt;"</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>Unix 系のシステム(/usr とか)にライブラリーがインストールされている場合は使えるのだけど、
-Windows ではつらい。
-どこから find しているかが不明瞭になるのである。</p>
-<p><code class="docutils literal notranslate"><span class="pre">include_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">defines</span></code>, <code class="docutils literal notranslate"><span class="pre">lib_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">libraries</span></code> の4つが揃えば大抵のライブラリーは使えるので、
-うまくいかないときは <code class="docutils literal notranslate"><span class="pre">find_package</span></code> は諦める方が速い。</p>
-<p>INTERFACE でビルド済みライブラリを使えないかやってみるとよい。</p>
-<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_library</span><span class="p">(</span><span class="s">boost</span><span class="w"> </span><span class="s">INTERFACE</span><span class="p">)</span>
-<span class="nb">target_include_directories</span><span class="p">(</span>
-<span class="w">  </span><span class="s">boost</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_LIST_DIR</span><span class="o">}</span><span class="s">/../include/boost-1_78</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>デバッグ版のライブラリーを配置する場合は以下の2とおりがメジャーである。</p>
+<ul class="simple">
+<li><p>ファイル名を変える(suffix を追加するなど)</p></li>
+<li><p>ディレクトリーを変える</p></li>
+</ul>
+<p>この2つの組合せで4つのパターンがある。ライブラリーごとにこれが混在し、
+更に <code class="docutils literal notranslate"><span class="pre">static</span></code> vs <code class="docutils literal notranslate"><span class="pre">shared</span></code> など別のファクターで種類が増える運命にある。</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>suffix</p></th>
+<th class="head"><p>dir</p></th>
+<th class="head"><p>release</p></th>
+<th class="head"><p>debug</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>libname.lib</p></td>
+<td><p>libname.lib</p></td>
+<td><p>リビルドして切り替える。どちらが出力されているかは記憶に頼る</p></td>
+</tr>
+<tr class="row-odd"><td><p>○</p></td>
+<td><p></p></td>
+<td><p>libname.lib</p></td>
+<td><p>libname_d.lib</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>○</p></td>
+<td><p>release/libname.lib</p></td>
+<td><p>debug/libname.lib</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>○</p></td>
+<td><p>○</p></td>
+<td><p>release/libname.lib</p></td>
+<td><p>release/libname_d.lib</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table></div>
+<p>だから <code class="docutils literal notranslate"><span class="pre">find_package</span></code> に頼らずに、なるべく自分で書くことを薦めている。</p>
+</section>
 </section>
 
         </article>
@@ -230,23 +273,23 @@ Windows ではつらい。
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../commandline.html">
+          <a class="next-page" href="custom_target.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Commandline</div>
+                <div class="title">Custom target</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="custom_target.html">
+          <a class="prev-page" href="variables.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Custom target</div>
+                <div class="title">Variables</div>
                 
               </div>
             </a>
@@ -256,7 +299,7 @@ Windows ではつらい。
               Copyright &#169; 2021, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/cmakelists/find_package.md.txt"
+            | <a class="muted-link" href="../_sources/cmakelists/generator_expressions.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -264,8 +307,27 @@ Windows ではつらい。
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Generator expressions</a><ul>
+<li><a class="reference internal" href="#debug-release">debug_release</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
