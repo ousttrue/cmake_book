@@ -1,4 +1,4 @@
-# public_private
+# Public & Private
 
 public 指定した設定は、link した外にも伝搬するぽい。
 
@@ -6,7 +6,7 @@ public 指定した設定は、link した外にも伝搬するぽい。
 ライブラリのビルドのみで使う場合は `private` 、
 ライブラリのユーザーにも公開したい場合は `public` とする。
 
-```
+```CMake
 # library
 
 TARGET_INCLUDE_DIRECTORIES(SOME_LIB
@@ -17,7 +17,7 @@ PUBLIC
 )
 ```
 
-```
+```CMake
 # library user
 
 TARGET_LINK_LIBRARIES(USER

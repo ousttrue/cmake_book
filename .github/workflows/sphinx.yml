@@ -14,9 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: pip install sphinx
-      - run: pip install sphinx-rtd-theme
+      - run: pip install furo
       - run: pip install myst-parser
       - run: pip install gitinclude
+      - run: pip install sphinx-copybutton
       - run: sphinx-build src build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

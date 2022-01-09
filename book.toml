@@ -1,9 +1,0 @@
-[book]
-authors = ["ousttrue"]
-language = "ja"
-multilingual = false
-src = "src"
-title = "CMake book"
-
-[output.html]
-site-url = "https://ousttrue.github.io/cmake_book/"

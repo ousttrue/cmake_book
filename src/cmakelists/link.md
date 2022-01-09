@@ -1,32 +1,32 @@
-# link
+# Link
 
 ## directories
 
 project
 
-```
+```CMake
 LINK_DIRECTORIES(libpath/lib)
 ```
 
 target
 
-```
+```CMake
 # from CMake-3.13
-TARGET_LINK_DIRECTORIES
+TARGET_LINK_DIRECTORIES(${TARGET_NAME} PRIVATE libpath)
 ```
 
 ## libraries
 
 project
 
-```
-LINK_LIBRARIES
+```CMake
+LINK_LIBRARIES(libpath)
 ```
 
 target
 
-```
-TARGET_LINK_LIBRARIES(MediaSessionPlaybackExample
+```CMake
+TARGET_LINK_LIBRARIES(MediaSessionPlaybackExample PRIVATE
      Mf
      Mfplat
      Mfuuid

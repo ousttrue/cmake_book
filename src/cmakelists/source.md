@@ -1,4 +1,4 @@
-# source
+# Source
 
 ## executable
 
@@ -6,13 +6,13 @@
 
 ### WinMain
 
-```
+```CMake
 ADD_EXECUTABLE(hello WIN32 ${SRC})
 ```
 
 ## lib
 
-```
+```CMake
 ADD_LIBRARY(lib_name STATIC
 src.cpp
 )
@@ -22,7 +22,7 @@ src.cpp
 
 デフォルト。省略してもよい。
 
-```
+```CMake
 ADD_LIBRARY(lib_name STATIC
 src.cpp
 )
@@ -32,7 +32,7 @@ src.cpp
 
 DLLを作る。
 
-```
+```CMake
 ADD_LIBRARY(lib_name SHARED
 src.cpp
 )
@@ -42,14 +42,14 @@ src.cpp
 
 header only のライブラリやビルド済みのライブラリを記述する。
 
-```
+```CMake
 # Catch2 header only
 add_library(catch INTERFACE)
 target_include_directories(catch INTERFACE ${CMAKE_CURRENT_LIST_DIR})
 target_compile_options(catch INTERFACE /wd4996)
 ```
 
-```
+```CMake
 # ASIO header only
 add_library(asio INTERFACE)
 target_include_directories(asio INTERFACE asio/asio/include)
@@ -59,7 +59,7 @@ target_include_directories(asio INTERFACE asio/asio/include)
 
 `add_executable`, `add_library` に対してあとからソースを追加する。
 
-```
+```CMake
 target_sources(glfw PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/glfw_config.h")
 ```
 
@@ -67,7 +67,7 @@ target_sources(glfw PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/glfw_config.h")
 
 変数にソースを格納する
 
-```
+```CMake
 FILE(GLOB SRC
     *.cpp
     *.h

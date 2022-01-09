@@ -1,4 +1,4 @@
-# compile
+# Compile
 
 `INCLUDE_DIRECTORIES, ADD_DEFINITIONS, ADD_COMPILE_OPTIONS...` は古代のやり方でプロジェクト全体に対するグローバル設定となる。
 `add_executable`, `add_library` より前に設定すること。
@@ -13,7 +13,7 @@ include や definition などは専用のコマンドがあるのでそちらを
 
 project
 
-```
+```CMake
 # vc の警告抑止
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312")
 # 👇 ADD_COMPILE_OPTIONS の方がよい
@@ -41,7 +41,7 @@ endif()
 
 target
 
-```
+```CMake
 TARGET_COMPILE_OPTIONS(${TARGET_NAME}
 PRIVATE
     /wd4251 
@@ -54,14 +54,14 @@ PRIVATE
 
 project
 
-```
+```CMake
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD 20)
 ```
 
 target
 
-```
+```CMake
 SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 ```
 
@@ -69,13 +69,13 @@ SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 
 project
 
-```
+```CMake
 INCLUDE_DIRECTORIES(libpath/include)
 ```
 
 target
 
-```
+```CMake
 TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
     ${BOOST_DIR}
 )
@@ -87,13 +87,13 @@ TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
 
 project
 
-```
+```CMake
 ADD_DEFINITIONS(-DHOGE)
 ```
 
 target
 
-```
+```CMake
 TARGET_COMPILE_DEFINITIONS(${TARGET_NAME}
 PRIVATE
     DLL_EXPORT
@@ -113,7 +113,7 @@ TARGET_COMPILE_DEFINITIONS(TARGET PUBLIC
 
 ## precompile header
 
-```
+```CMake
 target_precompile_headers(Nvy PUBLIC
     <cassert>
     <cmath>
