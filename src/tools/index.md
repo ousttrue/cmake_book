@@ -1,8 +1,9 @@
 # Tools
 
 ```{toctree}
-vswhere.md
-vscode.md
-vcpkg.md
+vswhere
+vscode
+vcpkg
+python
 ```
 
