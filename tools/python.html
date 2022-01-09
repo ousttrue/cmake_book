@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="qt6" href="qt6.html" /><link rel="prev" title="python" href="../tools/python.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Other" href="../other/index.html" /><link rel="prev" title="vcpkg" href="vcpkg.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2022.01.02"/>
-        <title>Other - cmakebook ドキュメント</title>
+        <title>python - cmakebook ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -170,16 +170,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandline.html">Commandline</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/index.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tools/vswhere.html">vswhere</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/vscode.html">vscode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/vcpkg.html">vcpkg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/python.html">python</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vswhere.html">vswhere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vscode.html">vscode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcpkg.html">vcpkg</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">python</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Other</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="qt6.html">qt6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="blender.html">blender</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../other/index.html">Other</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../other/qt6.html">qt6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../other/blender.html">blender</a></li>
 </ul>
 </li>
 </ul>
@@ -202,20 +202,43 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="other">
-<h1>Other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="qt6.html">qt6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blender.html">blender</a></li>
-</ul>
+          <section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>python から cmake を呼びだす。</p>
+<section id="cmake">
+<h2>cmake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://pypi.org/project/cmake/">https://pypi.org/project/cmake/</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">cmake.exe</span></code> が内包されている。
+以下のようにすることで PATH を通せる。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cmake</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">cmake</span><span class="o">.</span><span class="n">CMAKE_BIN_DIR</span><span class="si">}</span><span class="s1">;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"PATH"</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span>
+</pre></div>
 </div>
+</section>
+<section id="vswhere">
+<h2>vswhere<a class="headerlink" href="#vswhere" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://pypi.org/project/vswhere/">https://pypi.org/project/vswhere/</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">visual</span> <span class="pre">studio</span></code> の複数のバージョンに対応させる助けとなる。
+<code class="docutils literal notranslate"><span class="pre">CMake</span></code> の Generator を選べる。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vswhere</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="n">vswhere</span><span class="o">.</span><span class="n">get_latest</span><span class="p">(</span><span class="n">products</span><span class="o">=</span><span class="s1">'*'</span><span class="p">)</span>
+<span class="k">match</span> <span class="n">latest</span><span class="p">:</span>
+    <span class="k">case</span> <span class="p">{</span>
+        <span class="s1">'installationVersion'</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>
+        <span class="s1">'installationPath'</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span>
+    <span class="p">}:</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
+        <span class="n">msvcCompiler</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="se">\\</span><span class="s1">VC</span><span class="se">\\</span><span class="s1">Tools</span><span class="se">\\</span><span class="s1">MSVC</span><span class="se">\\</span><span class="si">{</span><span class="n">version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\\</span><span class="s1">bin</span><span class="se">\\</span><span class="s1">HostX64</span><span class="se">\\</span><span class="s1">x64</span><span class="se">\\</span><span class="s1">cl.exe'</span>
+        <span class="k">return</span> <span class="n">msvcCompiler</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">version</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -223,23 +246,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="qt6.html">
+          <a class="next-page" href="../other/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">qt6</div>
+                <div class="title">Other</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../tools/python.html">
+          <a class="prev-page" href="vcpkg.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">python</div>
+                <div class="title">vcpkg</div>
                 
               </div>
             </a>
@@ -249,7 +272,7 @@
               Copyright &#169; 2021, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/other/index.md.txt"
+            | <a class="muted-link" href="../_sources/tools/python.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -257,8 +280,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">python</a><ul>
+<li><a class="reference internal" href="#cmake">cmake</a></li>
+<li><a class="reference internal" href="#vswhere">vswhere</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
