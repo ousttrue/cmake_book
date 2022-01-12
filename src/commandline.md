@@ -10,6 +10,9 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### BuildType
 
+config 時に指定する。
+Generator に VisualStudio を使う場合は build 時に指定する。
+
 * Debug(default)
 * Release
 * MinSizeRel 
@@ -17,10 +20,17 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### Generator
 
-* `-G "Visual Studio 15 2017 Win64"`: Config 切り替えあり
-* `-G "Visual Studio 16 2019" -A x64`: Config 切り替えあり
-* `-G Ninja` 
-* `-G "Unix Makefiles"` 
+システムにインストールされている `VisualStudio` を検出してバージョンを特定するには、
+{doc}`/tools/vswhere`, {doc}`/tools/python` を参照。
+
+昔は、レジストリーを参照したりする。
+
+| generator                           | build時configure |                                              |
+|-------------------------------------|------------------|----------------------------------------------|
+| `-G "Visual Studio 15 2017 Win64"`  | 〇               |                                              |
+| `-G "Visual Studio 16 2019" -A x64` | 〇               | `-A` が分かれた                              |
+| `-G Ninja`                          |                  | Ninja 使うコンパイラをどうやって決めるのか？ |
+| `-G "Unix Makefiles"`               |                  |                                              |
 
 ## build
 
@@ -28,7 +38,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 $ cmake --build <path-to-build> --config Release
 ```
 
-config は切り替えのあるジェネレーターでは指定できる。
+config は `VisualStudio` では指定できる。
 そうでなければ configure に `-DCMAKE_BUILD_TYPE=Release` と指定する。
 
 ## install
@@ -37,6 +47,5 @@ config は切り替えのあるジェネレーターでは指定できる。
 $ cmake --install <path-to-build> --config Release --prefix DST_DIRECTORY
 ```
 
-config は切り替えのあるジェネレーターでは指定できる。
+config は `VisualStudio` では指定できる。
 そうでなければ configure に `-DCMAKE_BUILD_TYPE=Release` と指定する。
-
