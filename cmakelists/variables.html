@@ -155,10 +155,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <p class="caption" role="heading"><span class="caption-text">Articles</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic.html">Basic</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">CMakeLists.txt</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basic.html">Basic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="output.html">Output folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subdirs.html">subdirs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source.html">Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compile.html">Compile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
@@ -210,6 +212,7 @@
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="variables">
 <h1>Variables<a class="headerlink" href="#variables" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html">https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">${PROJECT_NAME}</span></code> のように <code class="docutils literal notranslate"><span class="pre">$</span></code> を先頭に置いて波括弧で変数名を囲む。</p>
 <div class="table-wrapper"><table class="colwidths-auto docutils align-default">
 <thead>
@@ -225,7 +228,7 @@
 <td><p>CMakeLists.txt のあるディレクトリー</p></td>
 </tr>
 <tr class="row-even"><td><p>CMAKE_SOURCE_DIR</p></td>
-<td><p></p></td>
+<td><p>The path to the top level of the source tree</p></td>
 </tr>
 <tr class="row-odd"><td><p>CMAKE_BINARY_DIR</p></td>
 <td><p>CMakeの作業ディレクトリー。<a class="reference internal" href="../commandline.html"><span class="doc">Commandline</span></a> <a class="reference internal" href="output.html"><span class="doc">Output folder</span></a></p></td>

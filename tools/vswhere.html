@@ -155,10 +155,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <p class="caption" role="heading"><span class="caption-text">Articles</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic.html">Basic</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cmakelists/index.html">CMakeLists.txt</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cmakelists/basic.html">Basic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cmakelists/output.html">Output folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmakelists/subdirs.html">subdirs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cmakelists/source.html">Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cmakelists/compile.html">Compile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cmakelists/link.html">Link</a></li>
@@ -214,12 +216,12 @@
 <h2>VisualStudio<a class="headerlink" href="#visualstudio" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>最近の vc は CMake を同梱している。
 パスを探索する例。</p>
-<div class="highlight-search_cmake.bat notranslate"><div class="highlight"><pre><span></span>@echo off
-for /f "usebackq tokens=1* delims=: " %%i in (`vswhere -latest -requires Microsoft.Component.MSBuild`) do (
-  if /i "%%i"=="installationPath" set InstallDir=%%j
-)
-set MSBUILD="%InstallDir%\MSBuild\15.0\Bin\MSBuild.exe"
-set CMAKE="%InstallDir%\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">echo</span> off
+<span class="k">for</span> <span class="k">/f</span> <span class="s2">"usebackq tokens=1* delims=: "</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span><span class="sb">`vswhere -latest -requires Microsoft.Component.MSBuild`</span><span class="p">)</span> <span class="k">do</span> <span class="p">(</span>
+  <span class="k">if</span> <span class="k">/i</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i"</span><span class="o">==</span><span class="s2">"installationPath"</span> <span class="k">set</span> <span class="nv">InstallDir</span><span class="p">=</span><span class="se">%%</span>j
+<span class="p">)</span>
+<span class="k">set</span> <span class="nv">MSBUILD</span><span class="p">=</span><span class="s2">"</span><span class="nv">%InstallDir%</span><span class="s2">\MSBuild\15.0\Bin\MSBuild.exe"</span>
+<span class="k">set</span> <span class="nv">CMAKE</span><span class="p">=</span><span class="s2">"</span><span class="nv">%InstallDir%</span><span class="s2">\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"</span>
 </pre></div>
 </div>
 </section>

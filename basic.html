@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="genindex.html" /><link rel="search" title="検索" href="search.html" /><link rel="next" title="Basic" href="basic.html" />
+<link rel="index" title="索引" href="genindex.html" /><link rel="search" title="検索" href="search.html" /><link rel="next" title="CMakeLists.txt" href="cmakelists/index.html" /><link rel="prev" title="CMakeBook" href="index.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2022.01.02"/>
-        <title>cmakebook ドキュメント</title>
+        <title>Basic - cmakebook ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">cmakebook  ドキュメント</div></a>
+      <a href="index.html"><div class="brand">cmakebook  ドキュメント</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -135,7 +135,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -144,7 +144,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">cmakebook  ドキュメント</span>
@@ -156,8 +156,8 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Articles</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Basic</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cmakelists/index.html">CMakeLists.txt</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="cmakelists/output.html">Output folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmakelists/subdirs.html">subdirs</a></li>
@@ -204,120 +204,80 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="cmakebook">
-<h1>CMakeBook<a class="headerlink" href="#cmakebook" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>CMake する備忘録。
-<code class="docutils literal notranslate"><span class="pre">find_package</span></code> に頼らずに CMakeLists.txt を自前で手書きする方向性。</p>
-<p><a class="reference external" href="https://cmake.org/">https://cmake.org/</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://cmake.org/documentation/">https://cmake.org/documentation/</a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Articles</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#source-dir-build-dir">SOURCE_DIR と BUILD_DIR</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="basic.html#source-dir">SOURCE_DIR</a></li>
-<li class="toctree-l3"><a class="reference internal" href="basic.html#build-dir">BUILD_DIR</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#minimal">minimal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#cmake">CMake のコマンドに大文字小文字の区別はない</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic.html#id1">変数</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cmakelists/index.html">CMakeLists.txt</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/output.html">Output folder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/subdirs.html">subdirs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/subdirs.html#add-subdirectory-subdirs">add_subdirectory, subdirs 例</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cmakelists/subdirs.html#hello">hello</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cmakelists/subdirs.html#src">src</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/source.html">Source</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/source.html#executable">executable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cmakelists/source.html#winmain">WinMain</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/source.html#lib">lib</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cmakelists/source.html#static">static</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cmakelists/source.html#shared">shared</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cmakelists/source.html#interface">interface</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/source.html#target-source">target_source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/source.html#glob">glob</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/compile.html">Compile</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/compile.html#flags">flags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/compile.html#c-standard">c++ standard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/compile.html#include">include</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/compile.html#definitions">definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/compile.html#precompile-header">precompile header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/link.html">Link</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/link.html#directories">directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/link.html#libraries">libraries</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/public_private.html">Public &amp; Private</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/variables.html">Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/generator_expressions.html">Generator expressions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cmakelists/generator_expressions.html#debug-release">debug_release</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/custom_target.html">Custom target</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/find_package.html">find_package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="commandline.html">Commandline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="commandline.html#configure">configure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="commandline.html#buildtype">BuildType</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commandline.html#generator">Generator</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="commandline.html#build">build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commandline.html#install">install</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tools/vswhere.html">vswhere</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tools/vswhere.html#visualstudio">VisualStudio</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tools/vscode.html">vscode</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#ninja">ninja</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#with-vcpkg">with vcpkg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#toolkit">toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#cland">cland</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tools/vscode.html#formatter">formatter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tools/vcpkg.html">vcpkg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools/python.html">python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tools/python.html#cmake">cmake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tools/python.html#vswhere">vswhere</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="other/index.html">Other</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="other/qt6.html">qt6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="other/blender.html">blender</a></li>
-</ul>
-</li>
-</ul>
+          <section class="tex2jax_ignore mathjax_ignore" id="basic">
+<h1>Basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<section id="source-dir-build-dir">
+<h2>SOURCE_DIR と BUILD_DIR<a class="headerlink" href="#source-dir-build-dir" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="commandline.html"><span class="doc">Commandline</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake [&lt;options&gt;] -S &lt;path-to-source&gt; -B &lt;path-to-build&gt; -G Ninja -DCMAKE_BUILD_TYPE=Release
+</pre></div>
 </div>
+<section id="source-dir">
+<h3>SOURCE_DIR<a class="headerlink" href="#source-dir" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="cmakelists/variables.html"><span class="doc">Variables</span></a></p>
+<p>トップレベルの <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> のあるフォルダ。
+コマンドラインの <code class="docutils literal notranslate"><span class="pre">-S</span></code> 引き数。
+<code class="docutils literal notranslate"><span class="pre">${CMAKE_SOURCE_DIR}</span></code></p>
+</section>
+<section id="build-dir">
+<h3>BUILD_DIR<a class="headerlink" href="#build-dir" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="cmakelists/variables.html"><span class="doc">Variables</span></a></p>
+<p>一時ファイルやビルドファイルを展開するフォルダ
+コマンドラインの <code class="docutils literal notranslate"><span class="pre">-B</span></code> 引き数。
+<code class="docutils literal notranslate"><span class="pre">${CMAKE_BUILD_DIR}</span></code></p>
+</section>
+</section>
+<section id="minimal">
+<h2>minimal<a class="headerlink" href="#minimal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># project</span>
+<span class="nb">CMAKE_MINIMUM_REQUIRED</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.20.0</span><span class="p">)</span>
+<span class="nb">PROJECT</span><span class="p">(</span><span class="s">hello</span><span class="w"> </span><span class="s">VERSION</span><span class="w"> </span><span class="s">0.1.0</span><span class="p">)</span>
+
+<span class="c"># target</span>
+<span class="nb">ADD_EXECUTABLE</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span>
+<span class="w">  </span><span class="s">main.cpp</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>CMakeLists.txt</p></li>
+<li><p>main.cpp</p></li>
+</ul>
+</section>
+<section id="cmake">
+<h2>CMake のコマンドに大文字小文字の区別はない<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">hoge</span><span class="w"> </span><span class="s">x</span><span class="p">)</span>
+
+<span class="c"># 同じ</span>
+
+<span class="nb">SET</span><span class="p">(</span><span class="s">hoge</span><span class="w"> </span><span class="s">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>変数<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>スペースを含まない場合は、クォート不要。</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">SET</span><span class="p">(</span><span class="s">SRC</span><span class="w"> </span><span class="s">main.cpp</span><span class="p">)</span>
+<span class="nb">SET</span><span class="p">(</span><span class="s">SRC</span><span class="w"> </span><span class="s2">"main.cpp"</span><span class="p">)</span>
+
+<span class="c"># 使う ${VAR_NAME} とする</span>
+
+<span class="nb">ADD_EXECUTABLE</span><span class="p">(</span><span class="s">hello</span>
+<span class="o">${</span><span class="nv">SRC</span><span class="o">}</span>
+<span class="p">)</span>
+
+<span class="c"># ${PROJECT_NAME}</span>
+<span class="c"># ${CMAKE_CURRENT_LISTS_DIR}</span>
+<span class="c"># のような自動定義の変数も同様</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -325,23 +285,33 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="basic.html">
+          <a class="next-page" href="cmakelists/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Basic</div>
+                <div class="title">CMakeLists.txt</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="index.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
         </div>
 
         <div class="related-information">
               Copyright &#169; 2021, ousttrue |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="_sources/index.md.txt"
+            | <a class="muted-link" href="_sources/basic.md.txt"
                rel="nofollow">
               ソースコードを表示
             </a>
@@ -349,8 +319,34 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            コンテンツ
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Basic</a><ul>
+<li><a class="reference internal" href="#source-dir-build-dir">SOURCE_DIR と BUILD_DIR</a><ul>
+<li><a class="reference internal" href="#source-dir">SOURCE_DIR</a></li>
+<li><a class="reference internal" href="#build-dir">BUILD_DIR</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#minimal">minimal</a></li>
+<li><a class="reference internal" href="#cmake">CMake のコマンドに大文字小文字の区別はない</a></li>
+<li><a class="reference internal" href="#id1">変数</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -155,10 +155,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
+  <p class="caption" role="heading"><span class="caption-text">Articles</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cmakelists/index.html">CMakeLists.txt</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="cmakelists/basic.html">Basic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmakelists/output.html">Output folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmakelists/subdirs.html">subdirs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmakelists/source.html">Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmakelists/compile.html">Compile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmakelists/link.html">Link</a></li>
@@ -218,6 +220,8 @@
 </div>
 <section id="buildtype">
 <h3>BuildType<a class="headerlink" href="#buildtype" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>config 時に指定する。
+Generator に VisualStudio を使う場合は build 時に指定する。</p>
 <ul class="simple">
 <li><p>Debug(default)</p></li>
 <li><p>Release</p></li>
@@ -227,12 +231,35 @@
 </section>
 <section id="generator">
 <h3>Generator<a class="headerlink" href="#generator" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">"Visual</span> <span class="pre">Studio</span> <span class="pre">15</span> <span class="pre">2017</span> <span class="pre">Win64"</span></code>: Config 切り替えあり</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">"Visual</span> <span class="pre">Studio</span> <span class="pre">16</span> <span class="pre">2019"</span> <span class="pre">-A</span> <span class="pre">x64</span></code>: Config 切り替えあり</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">Ninja</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">"Unix</span> <span class="pre">Makefiles"</span></code></p></li>
-</ul>
+<p>システムにインストールされている <code class="docutils literal notranslate"><span class="pre">VisualStudio</span></code> を検出してバージョンを特定するには、
+<a class="reference internal" href="tools/vswhere.html"><span class="doc">vswhere</span></a>, <a class="reference internal" href="tools/python.html"><span class="doc">python</span></a> を参照。</p>
+<p>昔は、レジストリーを参照したりする。</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>generator</p></th>
+<th class="head"><p>build時configure</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">"Visual</span> <span class="pre">Studio</span> <span class="pre">15</span> <span class="pre">2017</span> <span class="pre">Win64"</span></code></p></td>
+<td><p>〇</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">"Visual</span> <span class="pre">Studio</span> <span class="pre">16</span> <span class="pre">2019"</span> <span class="pre">-A</span> <span class="pre">x64</span></code></p></td>
+<td><p>〇</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-A</span></code> が分かれた</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">Ninja</span></code></p></td>
+<td><p></p></td>
+<td><p>Ninja 使うコンパイラをどうやって決めるのか？</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">"Unix</span> <span class="pre">Makefiles"</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table></div>
 </section>
 </section>
 <section id="build">
@@ -240,7 +267,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake --build &lt;path-to-build&gt; --config Release
 </pre></div>
 </div>
-<p>config は切り替えのあるジェネレーターでは指定できる。
+<p>config は <code class="docutils literal notranslate"><span class="pre">VisualStudio</span></code> では指定できる。
 そうでなければ configure に <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code> と指定する。</p>
 </section>
 <section id="install">
@@ -248,7 +275,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake --install &lt;path-to-build&gt; --config Release --prefix DST_DIRECTORY
 </pre></div>
 </div>
-<p>config は切り替えのあるジェネレーターでは指定できる。
+<p>config は <code class="docutils literal notranslate"><span class="pre">VisualStudio</span></code> では指定できる。
 そうでなければ configure に <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code> と指定する。</p>
 </section>
 </section>

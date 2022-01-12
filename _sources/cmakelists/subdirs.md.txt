@@ -1,20 +1,6 @@
-# Basic
+# subdirs
 
-## minimal
-
-```CMake
-# project
-CMAKE_MINIMUM_REQUIRED(VERSION 3.20.0)
-PROJECT(hello VERSION 0.1.0)
-
-# target
-ADD_EXECUTABLE(${PROJECT_NAME}
-  main.cpp
-)
-```
-
-* CMakeLists.txt
-* main.cpp
+CMakeLists.txt をディレクトリで分割する。
 
 ## add_subdirectory, subdirs 例
 
@@ -64,4 +50,3 @@ TARGET_ADD_LIBRARIES(${PROJECT_NAME}
     hello
 )
 ```
-
