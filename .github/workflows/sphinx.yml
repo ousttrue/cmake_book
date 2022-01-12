@@ -13,15 +13,10 @@ jobs:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
       - uses: actions/checkout@v1
-      - run: pip install sphinx
-      - run: pip install furo
-      - run: pip install myst-parser
-      - run: pip install gitinclude
-      - run: pip install sphinx-copybutton
+      - run: pip install -r requirements.txt
       - run: sphinx-build src build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-
