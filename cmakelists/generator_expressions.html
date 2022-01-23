@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="Custom target" href="custom_target.html" /><link rel="prev" title="Variables" href="variables.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="検索" href="../search.html" /><link rel="next" title="find_package" href="find_package.html" /><link rel="prev" title="Variables" href="variables.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2022.01.02"/>
         <title>Generator expressions - cmakebook ドキュメント</title>
@@ -161,25 +161,28 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">CMakeLists.txt</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="output.html">Output folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subdirs.html">subdirs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source.html">Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compile.html">Compile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="public_private.html">Public &amp; Private</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="target/index.html">Target</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="target/source.html">Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="target/compile.html">Compile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="target/link.html">Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="target/public_private.html">Public &amp; Private</a></li>
+<li class="toctree-l3"><a class="reference internal" href="target/custom_target.html">Custom target</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="variables.html">Variables</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Generator expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="custom_target.html">Custom target</a></li>
 <li class="toctree-l2"><a class="reference internal" href="find_package.html">find_package</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commandline.html">Commandline</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/index.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/index.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tools/vswhere.html">vswhere</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tools/vscode.html">vscode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tools/vcpkg.html">vcpkg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tools/python.html">python</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../other/index.html">Other</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../other/index.html">Other</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../other/qt6.html">qt6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../other/blender.html">blender</a></li>
 </ul>
@@ -280,12 +283,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="custom_target.html">
+          <a class="next-page" href="find_package.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Custom target</div>
+                <div class="title">find_package</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>

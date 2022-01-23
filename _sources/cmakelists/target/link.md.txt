@@ -1,6 +1,6 @@
 # Link
 
-| global           | target                  |
+| directory        | target                  |
 |------------------|-------------------------|
 | LINK_DIRECTORIES | TARGET_LINK_DIRECTORIES |
 | LINK_LIBRARIES   | TARGET_LINK_LIBRARIES   |

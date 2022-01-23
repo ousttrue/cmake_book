@@ -1,12 +1,16 @@
 # Compile
 
-`INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方でプロジェクト全体に対するグローバル設定となる。
+`INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方で ~~プロジェクト全体に対するグローバル設定となる~~
+ディレクトリに対する設定となるらしい。
+
+<https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html#properties-on-directories>
+
 このコマンドより後の `add_executable`, `add_library` に対して効果がある。
 複数のターゲットにまとめて設定したいときに使うかもしれない。
 
 対して `TARGET_INCLUDE_DIRECTORIES`, `TARGET_COMPILE_DEFINITIONS`, `TARGET_COMPILE_OPTIONS` は、 `add_executable`, `add_library` で作成した `target` に対して設定する。
 
-| global              | target                     |
+| directory           | target                     |
 |---------------------|----------------------------|
 | ADD_COMPILE_OPTIONS | TARGET_COMPILE_OPTIONS     |
 | INCLUDE_DIRECTORIES | TARGET_INCLUDE_DIRECTORIES |
