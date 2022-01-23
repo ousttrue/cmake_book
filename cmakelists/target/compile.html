@@ -247,8 +247,6 @@
 <h2>options<a class="headerlink" href="#options" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>コンパイラのコマンドラインオプションを設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。</p>
-<section id="project">
-<h3>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># vc の警告抑止</span>
 <span class="nb">SET</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s2">"${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312"</span><span class="p">)</span>
 <span class="c"># 👇 ADD_COMPILE_OPTIONS の方がよい</span>
@@ -274,9 +272,6 @@ include や definition などは専用のコマンドがあるのでそちらを
 <span class="nb">endif</span><span class="p">()</span>
 </pre></div>
 </div>
-</section>
-<section id="target">
-<h3>target<a class="headerlink" href="#target" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">TARGET_COMPILE_OPTIONS</span><span class="p">(</span><span class="o">${</span><span class="nv">TARGET_NAME</span><span class="o">}</span>
 <span class="s">PRIVATE</span>
 <span class="w">    </span><span class="s">/wd4251</span><span class="w"> </span>
@@ -286,10 +281,9 @@ include や definition などは専用のコマンドがあるのでそちらを
 </pre></div>
 </div>
 </section>
-</section>
 <section id="c-standard">
 <h2>c++ standard<a class="headerlink" href="#c-standard" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>project</p>
+<p>directory</p>
 <div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">SET</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">17</span><span class="p">)</span>
 <span class="nb">SET</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">20</span><span class="p">)</span>
 </pre></div>
@@ -301,7 +295,7 @@ include や definition などは専用のコマンドがあるのでそちらを
 </section>
 <section id="include">
 <h2>include<a class="headerlink" href="#include" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>project</p>
+<p>directory</p>
 <div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">INCLUDE_DIRECTORIES</span><span class="p">(</span><span class="s">libpath/include</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -315,7 +309,7 @@ include や definition などは専用のコマンドがあるのでそちらを
 <section id="definitions">
 <h2>definitions<a class="headerlink" href="#definitions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>２つのコマンドの <code class="docutils literal notranslate"><span class="pre">-D</span></code> の有無に注意。</p>
-<p>project</p>
+<p>directory</p>
 <div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">ADD_DEFINITIONS</span><span class="p">(</span><span class="s">-DHOGE</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -417,11 +411,7 @@ include や definition などは専用のコマンドがあるのでそちらを
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Compile</a><ul>
-<li><a class="reference internal" href="#options">options</a><ul>
-<li><a class="reference internal" href="#project">project</a></li>
-<li><a class="reference internal" href="#target">target</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#options">options</a></li>
 <li><a class="reference internal" href="#c-standard">c++ standard</a></li>
 <li><a class="reference internal" href="#include">include</a></li>
 <li><a class="reference internal" href="#definitions">definitions</a></li>

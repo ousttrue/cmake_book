@@ -21,8 +21,6 @@
 コンパイラのコマンドラインオプションを設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。
 
-### project
-
 ```CMake
 # vc の警告抑止
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312")
@@ -49,8 +47,6 @@ elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 endif()
 ```
 
-### target
-
 ```CMake
 TARGET_COMPILE_OPTIONS(${TARGET_NAME}
 PRIVATE
@@ -62,7 +58,7 @@ PRIVATE
 
 ## c++ standard
 
-project
+directory
 
 ```CMake
 SET(CMAKE_CXX_STANDARD 17)
@@ -77,7 +73,7 @@ SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 
 ## include
 
-project
+directory
 
 ```CMake
 INCLUDE_DIRECTORIES(libpath/include)
@@ -95,7 +91,7 @@ TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
 
 ２つのコマンドの `-D` の有無に注意。
 
-project
+directory
 
 ```CMake
 ADD_DEFINITIONS(-DHOGE)
