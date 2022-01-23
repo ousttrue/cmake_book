@@ -7,7 +7,7 @@
 
 ## directories
 
-project
+directory
 
 ```CMake
 LINK_DIRECTORIES(libpath/lib)
@@ -22,7 +22,7 @@ TARGET_LINK_DIRECTORIES(${TARGET_NAME} PRIVATE libpath)
 
 ## libraries
 
-project
+directory
 
 ```CMake
 LINK_LIBRARIES(libpath)
