@@ -1,17 +1,23 @@
 # Compile
 
-`INCLUDE_DIRECTORIES, ADD_DEFINITIONS, ADD_COMPILE_OPTIONS...` は古代のやり方でプロジェクト全体に対するグローバル設定となる。
-`add_executable`, `add_library` より前に設定すること。
+`INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方でプロジェクト全体に対するグローバル設定となる。
+このコマンドより後の `add_executable`, `add_library` に対して効果がある。
+複数のターゲットにまとめて設定したいときに使うかもしれない。
 
-最近は、 `TARGET_INCLUDE_DIRECTORIES, TARGET_COMPILE_DEFINITIONS, TARGET_COMPILE_OPTIONS...` をなるべく使う。
-稀に、複数のターゲットにまとめて設定したいときに使う。
+対して `TARGET_INCLUDE_DIRECTORIES`, `TARGET_COMPILE_DEFINITIONS`, `TARGET_COMPILE_OPTIONS` は、 `add_executable`, `add_library` で作成した `target` に対して設定する。
 
-## flags
+| global              | target                     |
+|---------------------|----------------------------|
+| ADD_COMPILE_OPTIONS | TARGET_COMPILE_OPTIONS     |
+| INCLUDE_DIRECTORIES | TARGET_INCLUDE_DIRECTORIES |
+| ADD_DEFINITIONS     | TARGET_COMPILE_DEFINITIONS |
 
-コンパイラのコマンドラインオプションを直接設定する。
+## options
+
+コンパイラのコマンドラインオプションを設定する。
 include や definition などは専用のコマンドがあるのでそちらを使った方が良い。
 
-project
+### project
 
 ```CMake
 # vc の警告抑止
@@ -39,7 +45,7 @@ elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 endif()
 ```
 
-target
+### target
 
 ```CMake
 TARGET_COMPILE_OPTIONS(${TARGET_NAME}

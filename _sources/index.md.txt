@@ -14,3 +14,9 @@ commandline.md
 tools/index
 other/index
 ```
+
+```{toctree}
+:caption: External
+github Link <https://github.com/ousttrue/cmake_book>
+```
+
