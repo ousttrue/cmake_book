@@ -10,8 +10,7 @@ Project Local で完結する方向性。
 
 ```{toctree}
 :caption: Articles
-basic
-target/index
+basic/index
 cmakelists/index
 commandline.md
 tools/index

@@ -1,7 +1,6 @@
 # Compile
 
-`INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方で ~~プロジェクト全体に対するグローバル設定となる~~
-ディレクトリに対する設定となるらしい。
+`INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方で ~~プロジェクト全体に対するグローバル設定となる~~ ディレクトリに対する設定となるらしい。
 
 <https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html#properties-on-directories>
 
@@ -24,9 +23,9 @@ include や definition などは専用のコマンドがあるのでそちらを
 ```CMake
 # vc の警告抑止
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4267 /wd4530 /wd4312")
-# 👇 ADD_COMPILE_OPTIONS の方がよい
+# 👇 TARGET_COMPILE_OPTIONS の方がよいかもしれない
+# めんどくさいので全体に設定
 ADD_COMPILE_OPTIONS(/wd4267 /wd4530 /wd4312)
-
 ADD_COMPILE_OPTIONS("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
 ADD_COMPILE_OPTIONS("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
@@ -58,6 +57,8 @@ PRIVATE
 
 ## c++ standard
 
+<https://cmake.org/cmake/help/latest/prop_tgt/CXX_STANDARD.html>
+
 directory
 
 ```CMake
@@ -70,6 +71,12 @@ target
 ```CMake
 SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 ```
+
+## c standard
+
+`C_STANDARD` もある。
+
+<https://cmake.org/cmake/help/latest/prop_tgt/C_STANDARD.html>
 
 ## include
 

@@ -10,7 +10,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### SOURCE_DIR
 
-{doc}`cmakelists/variables`
+{doc}`/cmakelists/variables`
 
 トップレベルの `CMakeLists.txt` のあるフォルダ。
 コマンドラインの `-S` 引き数。
@@ -18,7 +18,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### BUILD_DIR
 
-{doc}`cmakelists/variables`
+{doc}`/cmakelists/variables`
 
 一時ファイルやビルドファイルを展開するフォルダ
 コマンドラインの `-B` 引き数。
