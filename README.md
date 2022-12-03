@@ -4,8 +4,3 @@
 
 https://ousttrue.github.io/cmake_book/
 
-preview
-
-```
-$ mdbook serve -o 
-```

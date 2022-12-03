@@ -1,7 +1,9 @@
 # CMakeBook
 
 CMake する備忘録。
-`find_package` に頼らずに CMakeLists.txt を自前で手書きする方向性。
+Project Local で完結する方向性。
+
+* `find_package` を避けて `subdirs` で済ませたい
 
 <https://cmake.org/>
 * <https://cmake.org/documentation/>
@@ -9,6 +11,7 @@ CMake する備忘録。
 ```{toctree}
 :caption: Articles
 basic
+target/index
 cmakelists/index
 commandline.md
 tools/index
@@ -19,4 +22,3 @@ other/index
 :caption: External
 github Link <https://github.com/ousttrue/cmake_book>
 ```
-

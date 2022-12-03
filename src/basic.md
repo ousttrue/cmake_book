@@ -24,6 +24,15 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 コマンドラインの `-B` 引き数。
 `${CMAKE_BUILD_DIR}`
 
+## BuildType
+
+<https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html>
+
+- Debug
+- Release
+- RelWithDebInfo
+- MinSizeRel
+
 ## minimal
 
 ```CMake
@@ -48,6 +57,14 @@ set(hoge x)
 # 同じ
 
 SET(hoge x)
+```
+
+## 引数(定数)の大文字小文字の区別はある
+
+```
+ADD_EXECUTABLE(hello WIN32 ${SRC}) # WIN32
+
+TARGET_LINK_LIBRARIES(EXE_NAME PRIVATE LIB_NAME) # PRIVATE
 ```
 
 ## 変数
