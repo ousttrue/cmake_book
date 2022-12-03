@@ -1,4 +1,45 @@
-# Public & Private
+# Link
+
+| directory        | target                  |
+|------------------|-------------------------|
+| LINK_DIRECTORIES | TARGET_LINK_DIRECTORIES |
+| LINK_LIBRARIES   | TARGET_LINK_LIBRARIES   |
+
+## directories
+
+directory
+
+```CMake
+LINK_DIRECTORIES(libpath/lib)
+```
+
+target
+
+```CMake
+# from CMake-3.13
+TARGET_LINK_DIRECTORIES(${TARGET_NAME} PRIVATE libpath)
+```
+
+## libraries
+
+directory
+
+```CMake
+LINK_LIBRARIES(libpath)
+```
+
+target
+
+```CMake
+TARGET_LINK_LIBRARIES(MediaSessionPlaybackExample PRIVATE
+     Mf
+     Mfplat
+     Mfuuid
+     strmiids
+     )
+```
+
+### Public & Private
 
 public 指定した設定は、link した外にも伝搬するぽい。
 
@@ -26,4 +67,3 @@ TARGET_LINK_LIBRARIES(USER
 ```
 
 ビルド済みや HeaderOnly に対して `ADD_LIBRARY` する場合向けに `interface` がある。
-
