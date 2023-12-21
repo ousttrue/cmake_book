@@ -1,9 +1,13 @@
+---
+sidebar_position: 1
+---
+
 # CMakeLists.txt
 
 ```{toctree}
-output.md
-subdirs.md
-variables.md
-generator_expressions.md
-find_package.md
+1 output.md
+2 subdirs.md
+3 variables.md
+4 generator_expressions.md
+5 find_package.md
 ```

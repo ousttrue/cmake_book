@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Source
 
 ## executable
@@ -60,7 +64,7 @@ target_include_directories(asio INTERFACE asio/asio/include)
 ビルド済みのDLLで、 `dll` を `bin` にコピーしたり、`so` を　`lib` にコピーしたい場合に使う。
 
 Android NDK で使う場合がある。
-<https://developer.android.com/studio/projects/configure-cmake?hl=ja>
+https://developer.android.com/studio/projects/configure-cmake?hl=ja
 
 `SHARED IMPORTED` を指定すると、何故か `target_include_directories` などが使えなくなる。
 代替として、 `set_target_properties` や `set_property` を使う。

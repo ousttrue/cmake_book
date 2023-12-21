@@ -1,8 +1,12 @@
-# Basic
+---
+sidebar_position: 1
+---
+
+# Start
 
 ## SOURCE_DIR と BUILD_DIR
 
-{doc}`commandline`
+[/commandline](/docs/commandline)
 
 ```
 $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -10,7 +14,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### SOURCE_DIR
 
-{doc}`/cmakelists/variables`
+[/cmakelists/variables](/docs/cmakelists/variables)
 
 トップレベルの `CMakeLists.txt` のあるフォルダ。
 コマンドラインの `-S` 引き数。
@@ -18,7 +22,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### BUILD_DIR
 
-{doc}`/cmakelists/variables`
+[/cmakelists/variables](/docs/cmakelists/variables)
 
 一時ファイルやビルドファイルを展開するフォルダ
 コマンドラインの `-B` 引き数。
@@ -26,7 +30,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ## BuildType
 
-<https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html>
+https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
 
 - Debug
 - Release

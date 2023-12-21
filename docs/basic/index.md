@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Basic
 
 - `ADD_EXECUTABLE(EXE_NAME...)` で EXE_NAME という target が作成される。
@@ -7,10 +11,10 @@
 というように使うことができる。
 
 ```{toctree}
-basic.md
-source.md
-compile.md
-link.md
-custom_target.md
-properties.md
+1 basic.md
+2 source.md
+3 compile.md
+4 link.md
+5 custom_target.md
+6 properties.md
 ```

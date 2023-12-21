@@ -1,4 +1,8 @@
-# find_package
+---
+sidebar_position: 5
+---
+
+# Find_package
 
 ```CMake
 find_package(Boost REQUIRED)

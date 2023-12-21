@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Custom target
 
 コード生成や、Shader の事前コンパイルに使う。

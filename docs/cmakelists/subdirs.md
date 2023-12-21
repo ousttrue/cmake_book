@@ -1,4 +1,8 @@
-# subdirs
+---
+sidebar_position: 2
+---
+
+# Subdirs
 
 CMakeLists.txt をディレクトリで分割する。
 

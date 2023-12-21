@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # blender
 
 cmake で blender build する例

@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Android NDK
 
 android NDK 付属のコンパイラで cross build する。

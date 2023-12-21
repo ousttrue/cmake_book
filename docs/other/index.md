@@ -1,7 +1,11 @@
+---
+sidebar_position: 5
+---
+
 # Other
 
 ```{toctree}
-qt6.md
-blender.md
-android_ndk.md
+1 qt6.md
+2 blender.md
+3 android_ndk.md
 ```

@@ -1,8 +1,12 @@
+---
+sidebar_position: 3
+---
+
 # Compile
 
 `INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方で ~~プロジェクト全体に対するグローバル設定となる~~ ディレクトリに対する設定となるらしい。
 
-<https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html#properties-on-directories>
+https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html#properties-on-directories
 
 このコマンドより後の `add_executable`, `add_library` に対して効果がある。
 複数のターゲットにまとめて設定したいときに使うかもしれない。
@@ -57,7 +61,7 @@ PRIVATE
 
 ## c++ standard
 
-<https://cmake.org/cmake/help/latest/prop_tgt/CXX_STANDARD.html>
+https://cmake.org/cmake/help/latest/prop_tgt/CXX_STANDARD.html
 
 directory
 
@@ -76,7 +80,7 @@ SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 
 `C_STANDARD` もある。
 
-<https://cmake.org/cmake/help/latest/prop_tgt/C_STANDARD.html>
+https://cmake.org/cmake/help/latest/prop_tgt/C_STANDARD.html
 
 ## include
 

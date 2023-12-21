@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # vscode
 
 `${workspaceFolder}/.vscode/settings.json`
@@ -39,7 +43,7 @@
 
 ## formatter
 
-<https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format>
+https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format
 
 ```
 > pip install cmake-format

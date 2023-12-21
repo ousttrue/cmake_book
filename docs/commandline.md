@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Commandline
 
 ## configure
@@ -21,7 +25,7 @@ Generator に VisualStudio を使う場合は build 時に指定する。
 ### Generator
 
 システムにインストールされている `VisualStudio` を検出してバージョンを特定するには、
-{doc}`/tools/vswhere`, {doc}`/tools/python` を参照。
+[/tools/vswhere](/docs/tools/vswhere), [/tools/python](/docs/tools/python) を参照。
 
 昔は、レジストリーを参照したりする。
 

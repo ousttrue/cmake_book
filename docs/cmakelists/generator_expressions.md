@@ -1,6 +1,10 @@
+---
+sidebar_position: 4
+---
+
 # Generator expressions
 
-<https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html>
+https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
 
 ## debug_release
 

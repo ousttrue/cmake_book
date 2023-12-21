@@ -1,10 +1,14 @@
+---
+sidebar_position: 4
+---
+
 # python
 
 python から cmake を呼びだす。
 
 ## cmake
 
-<https://pypi.org/project/cmake/>
+https://pypi.org/project/cmake/
 
 `cmake.exe` が内包されている。
 以下のようにすることで PATH を通せる。
@@ -16,7 +20,7 @@ os.environ['PATH'] = f'{cmake.CMAKE_BIN_DIR};{os.environ["PATH"]}'
 
 ## vswhere
 
-<https://pypi.org/project/vswhere/>
+https://pypi.org/project/vswhere/
 
 `visual studio` の複数のバージョンに対応させる助けとなる。
 `CMake` の Generator を選べる。
