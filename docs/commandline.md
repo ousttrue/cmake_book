@@ -21,7 +21,7 @@ Generator に VisualStudio を使う場合は build 時に指定する。
 ### Generator
 
 システムにインストールされている `VisualStudio` を検出してバージョンを特定するには、
-[/tools/vswhere](/docs/tools/vswhere), [/tools/python](/docs/tools/python) を参照。
+[/other/vswhere](/docs/other/vswhere), [/other/python](/docs/other/python) を参照。
 
 昔は、レジストリーを参照したりする。
 
