@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Compile
 
 `INCLUDE_DIRECTORIES`, `ADD_DEFINITIONS`, `ADD_COMPILE_OPTIONS` などは古いやり方で ~~プロジェクト全体に対するグローバル設定となる~~ ディレクトリに対する設定となるらしい。

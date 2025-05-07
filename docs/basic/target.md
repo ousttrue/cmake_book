@@ -1,17 +1,19 @@
----
-sidebar_position: 2
----
-
-# Source
+# Target
 
 ## executable
 
 実行ファイルを作る
 
+```cmake
+ADD_EXECUTABLE(hello main.cpp)
+```
+
 ### WinMain
 
+`WIN32` flag
+
 ```CMake
-ADD_EXECUTABLE(hello WIN32 ${SRC})
+ADD_EXECUTABLE(hello WIN32 main.cpp)
 ```
 
 ## lib
@@ -112,7 +114,7 @@ target_sources(glfw PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/glfw_config.h")
 FILE(GLOB SRC
     *.cpp
     *.h
-) 
- 
+)
+
 ADD_EXECUTABLE(hello ${SRC})
 ```

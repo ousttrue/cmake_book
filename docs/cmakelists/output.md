@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Output folder
 
 デフォルトだとビルド対象ごとにディレクトリーが別れるので、

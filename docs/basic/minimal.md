@@ -1,8 +1,4 @@
----
-sidebar_position: 1
----
-
-# Start
+# Minimal
 
 ## SOURCE_DIR と BUILD_DIR
 
@@ -65,7 +61,7 @@ SET(hoge x)
 
 ## 引数(定数)の大文字小文字の区別はある
 
-```
+```cmake
 ADD_EXECUTABLE(hello WIN32 ${SRC}) # WIN32
 
 TARGET_LINK_LIBRARIES(EXE_NAME PRIVATE LIB_NAME) # PRIVATE

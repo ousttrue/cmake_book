@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Generator expressions
 
 https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html

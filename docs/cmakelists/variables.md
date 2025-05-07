@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Variables
 
 https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
