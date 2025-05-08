@@ -28,6 +28,8 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
 
+`-DCMAKE_BUILD_TYPE=Release`
+
 - Debug
 - Release
 - RelWithDebInfo
@@ -85,3 +87,7 @@ ${SRC}
 # ${CMAKE_CURRENT_LISTS_DIR}
 # のような自動定義の変数も同様
 ```
+## 環境変数
+
+``
+

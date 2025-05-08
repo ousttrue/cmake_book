@@ -10,6 +10,15 @@ ADD_EXECUTABLE(hello main.cpp)
 
 ### WinMain
 
+```c
+int __clrcall WinMain(
+  [in]           HINSTANCE hInstance,
+  [in, optional] HINSTANCE hPrevInstance,
+  [in]           LPSTR     lpCmdLine,
+  [in]           int       nShowCmd
+);
+```
+
 `WIN32` flag
 
 ```CMake
