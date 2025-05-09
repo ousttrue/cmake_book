@@ -44,8 +44,9 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Other',
+      label: 'Tips',
       items: [
+        "other/gitignore",
         "other/clangd",
         "other/vscode",
         "other/vswhere",
