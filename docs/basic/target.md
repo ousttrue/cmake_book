@@ -74,6 +74,15 @@ target_include_directories(asio INTERFACE asio/asio/include)
 
 ビルド済みのDLLで、 `dll` を `bin` にコピーしたり、`so` を　`lib` にコピーしたい場合に使う。
 
+::: danger
+IMPORTED target は何故か directory スコープ。
+だまって消える。エラーとか出ない。
+
+https://stackoverflow.com/questions/9628350/how-to-modify-scope-of-imported-library-using-cmake
+
+GLOBAL つける。
+:::
+
 Android NDK で使う場合がある。
 https://developer.android.com/studio/projects/configure-cmake?hl=ja
 
@@ -81,7 +90,7 @@ https://developer.android.com/studio/projects/configure-cmake?hl=ja
 代替として、 `set_target_properties` や `set_property` を使う。
 
 ```CMake
-add_library(openxr_loader SHARED IMPORTED)
+add_library(openxr_loader SHARED IMPORTED GLOBAL) # SHARED / STATIC。 GLOBAL が無いとディレクトリスコープ。
 set_target_properties(
   openxr_loader
   PROPERTIES
