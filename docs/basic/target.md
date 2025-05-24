@@ -129,6 +129,33 @@ target_link_libraries の代替
 
 - https://stackoverflow.com/questions/36922635/cmake-add-dependency-to-imported-library
 
+```cmake
+  set_property(
+    TARGET ${TARGET_NAME}
+    PROPERTY INTERFACE_LINK_LIBRARIES
+             $ENV{VULKAN_SDK}/Lib/shaderc_utild.lib
+             $ENV{VULKAN_SDK}/Lib/SPIRV-Toolsd.lib
+             $ENV{VULKAN_SDK}/Lib/SPIRV-Tools-optd.lib
+             $ENV{VULKAN_SDK}/Lib/glslangd.lib)
+```
+
+:::danger set_target_properties called with incorrect number of arguments. 
+
+値が複数あると失敗するかも。
+set_property ならできた。
+
+```cmake
+  set_target_properties(
+    ${TARGET_NAME}
+    PROPERTIES INTERFACE_LINK_LIBRARIES 
+               $ENV{VULKAN_SDK}/Lib/shaderc_utild.lib
+               $ENV{VULKAN_SDK}/Lib/SPIRV-Toolsd.lib
+               $ENV{VULKAN_SDK}/Lib/SPIRV-Tools-optd.lib
+               $ENV{VULKAN_SDK}/Lib/glslangd.lib)
+```
+
+:::
+
 ## source
 ### target_source
 
