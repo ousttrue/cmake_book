@@ -16,35 +16,37 @@ const sidebars: SidebarsConfig = {
 
   // But you can create a sidebar manually
   tutorialSidebar: [
-    'index',
-    'commandline',
+    "index",
+    "commandline",
     {
-      type: 'category',
-      label: 'Target',
+      type: "category",
+      label: "Target",
       items: [
-        'basic/minimal',
-        'basic/target',
-        'basic/compile',
-        'basic/link',
-        'basic/properties',
-        'basic/custom_target',
+        "basic/minimal",
+        "basic/target",
+        "basic/compile",
+        "basic/link",
+        "basic/properties",
+        "basic/custom_target",
       ],
     },
     {
-      type: 'category',
-      label: 'CmakeLists',
+      type: "category",
+      label: "CmakeLists",
       items: [
-        'cmakelists/output',
-        'cmakelists/subdirs',
-        'cmakelists/variables',
-        'cmakelists/generator_expressions',
-        'cmakelists/fetch_content',
-        'cmakelists/find_package',
+        "cmakelists/variables",
+        "cmakelists/if",
+        "cmakelists/subdirs",
+        "cmakelists/generator_expressions",
+        "cmakelists/fetch_content",
+        "cmakelists/find_package",
+        "cmakelists/output",
+        "cmakelists/source_group",
       ],
     },
     {
-      type: 'category',
-      label: 'Tips',
+      type: "category",
+      label: "Tips",
       items: [
         "other/gitignore",
         "other/clangd",
@@ -57,7 +59,7 @@ const sidebars: SidebarsConfig = {
         "other/blender",
       ],
     },
-  ]
+  ],
 };
 
 export default sidebars;

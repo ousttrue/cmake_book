@@ -8,7 +8,7 @@
 ADD_EXECUTABLE(hello main.cpp)
 ```
 
-### WinMain
+:::tip WIN32 gui entrypoint
 
 ```c
 int __clrcall WinMain(
@@ -19,29 +19,29 @@ int __clrcall WinMain(
 );
 ```
 
-`WIN32` flag
-
 ```CMake
 ADD_EXECUTABLE(hello WIN32 main.cpp)
 ```
 
-## lib
+:::
 
-```CMake
-ADD_LIBRARY(lib_name STATIC
-src.cpp
-)
-```
+## lib
 
 ### STATIC
 
-デフォルト。省略してもよい。
-
 ```CMake
 ADD_LIBRARY(lib_name STATIC
 src.cpp
 )
 ```
+
+:::tip 省略してもよい。
+
+```CMake
+ADD_LIBRARY(lib_name src.cpp)
+```
+
+:::
 
 ### SHARED
 
@@ -70,27 +70,50 @@ add_library(asio INTERFACE)
 target_include_directories(asio INTERFACE asio/asio/include)
 ```
 
-### SHARED IMPORTED
+### IMPORTED
 
-ビルド済みのDLLで、 `dll` を `bin` にコピーしたり、`so` を　`lib` にコピーしたい場合に使う。
+ビルド済みのライブラリ。
+変に癖があって使いづらい。
 
-::: danger
+:::danger
 IMPORTED target は何故か directory スコープ。
 だまって消える。エラーとか出ない。
 
 https://stackoverflow.com/questions/9628350/how-to-modify-scope-of-imported-library-using-cmake
 
-GLOBAL つける。
+GLOBAL 必用
 :::
 
-Android NDK で使う場合がある。
+:::warning
+`IMPORTED` を指定すると、何故か `target_include_directories` などが使えなくなる。
+`set_target_properties` や `set_property` を使う。
+
+:::
+
+#### property: IMPORTED_LOCATION
+
+必須? property
+
+:::tip Android NDK の例
+
 https://developer.android.com/studio/projects/configure-cmake?hl=ja
 
-`SHARED IMPORTED` を指定すると、何故か `target_include_directories` などが使えなくなる。
-代替として、 `set_target_properties` や `set_property` を使う。
+```cmake
+# Adds the output of the additional CMake build as a prebuilt static
+# library and names it lib_gmath.
+add_library( lib_gmath STATIC IMPORTED )
+set_target_properties( lib_gmath PROPERTIES IMPORTED_LOCATION
+                       ${lib_build_DIR}/${ANDROID_ABI}/lib_gmath.a )
+include_directories( ${lib_src_DIR}/include ) # target_include_directories を回避しているぽい
+```
+:::
+
+#### property: INTERFACE_INCLUDE_DIRECTORIES
+
+target_include_directories の代替
 
 ```CMake
-add_library(openxr_loader SHARED IMPORTED GLOBAL) # SHARED / STATIC。 GLOBAL が無いとディレクトリスコープ。
+add_library(openxr_loader SHARED IMPORTED GLOBAL) # GLOBAL が無いとディレクトリスコープ。
 set_target_properties(
   openxr_loader
   PROPERTIES
@@ -100,23 +123,14 @@ set_target_properties(
 )
 ```
 
-`INTERFACE_INCLUDE_DIRECTORIES` と `IMPORTED_LOCATION` の例
+#### property: IMPORTED_LINK_INTERFACE_LIBRARIES
 
-```CMake
-add_library(openxr_loader SHARED IMPORTED)
-set_property(
-  TARGET openxr_loader
-  PROPERTY
-    IMPORTED_LOCATION
-    ${OXR_LOADER_DIR}/OpenXR/Libs/Android/${ANDROID_ABI}/${CMAKE_BUILD_TYPE}/libopenxr_loader.so
-)
-```
+target_link_libraries の代替
 
-`IMPORTED_LOCATION` の例
+- https://stackoverflow.com/questions/36922635/cmake-add-dependency-to-imported-library
 
-`libopenxr_loader.so` がビルド済みで `CMAKE_LIBRARY_OUTPUT_DIRECTORY(lib)` にコピーしたい。
-
-## target_source
+## source
+### target_source
 
 `add_executable`, `add_library` に対してあとからソースを追加する。
 
@@ -124,7 +138,7 @@ set_property(
 target_sources(glfw PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/glfw_config.h")
 ```
 
-## glob
+### glob
 
 変数にソースを格納する
 

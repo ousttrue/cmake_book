@@ -51,7 +51,7 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 - CMakeLists.txt
 - main.cpp
 
-## CMake のコマンドに大文字小文字の区別はない
+## CMake のコマンド(関数名)に大文字小文字の区別はない
 
 ```cmake
 set(hoge x)
@@ -62,10 +62,12 @@ SET(hoge x)
 ```
 
 ## 引数(定数)の大文字小文字の区別はある
+
+```cmake
 ADD_EXECUTABLE(hello WIN32 ${SRC}) # WIN32
 
 TARGET_LINK_LIBRARIES(EXE_NAME PRIVATE LIB_NAME) # PRIVATE
-```
+````
 
 ## 変数
 
@@ -84,7 +86,7 @@ ${SRC}
 # ${PROJECT_NAME}
 # ${CMAKE_CURRENT_LISTS_DIR}
 # のような自動定義の変数も同様
-```
+````
 
 ## 環境変数
 
