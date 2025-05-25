@@ -52,6 +52,7 @@ const sidebars: SidebarsConfig = {
         "libs/stb",
         "libs/glfw",
         "libs/ktx",
+        "libs/openxr",
       ],
     },
     {
