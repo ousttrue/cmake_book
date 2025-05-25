@@ -46,6 +46,16 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Libs",
+      items: [
+        "libs/zlib",
+        "libs/stb",
+        "libs/glfw",
+        "libs/ktx",
+      ],
+    },
+    {
+      type: "category",
       label: "Tips",
       items: [
         "other/gitignore",
