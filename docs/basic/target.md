@@ -73,7 +73,8 @@ target_include_directories(asio INTERFACE asio/asio/include)
 ### IMPORTED
 
 ビルド済みのライブラリ。
-変に癖があって使いづらい。
+ビルド結果をあらわす単一の lib, so, dll を IMPORTED_LOCATION property で指定する。
+その他複数の lib 群を足す場合は、 IMPORTED_LINK_INTERFACE_LIBRARIES で追加。
 
 :::danger
 IMPORTED target は何故か directory スコープ。
@@ -139,12 +140,13 @@ target_link_libraries の代替
              $ENV{VULKAN_SDK}/Lib/glslangd.lib)
 ```
 
-:::danger set_target_properties called with incorrect number of arguments. 
+:::danger `set_target_properties` called with incorrect number of arguments. 
 
-値が複数あると失敗するかも。
-set_property ならできた。
+set_target_properties は property が複数とは言ったが、property の値が複数とは言っていない。
+値が複数のときは set_property ならできた。
 
 ```cmake
+  # set_target_properties called with incorrect number of arguments
   set_target_properties(
     ${TARGET_NAME}
     PROPERTIES INTERFACE_LINK_LIBRARIES 
@@ -157,6 +159,7 @@ set_property ならできた。
 :::
 
 ## source
+
 ### target_source
 
 `add_executable`, `add_library` に対してあとからソースを追加する。
