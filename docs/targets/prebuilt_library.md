@@ -1,76 +1,4 @@
-# Target
-
-## executable
-
-実行ファイルを作る
-
-```cmake
-ADD_EXECUTABLE(hello main.cpp)
-```
-
-:::tip WIN32 gui entrypoint
-
-```c
-int __clrcall WinMain(
-  [in]           HINSTANCE hInstance,
-  [in, optional] HINSTANCE hPrevInstance,
-  [in]           LPSTR     lpCmdLine,
-  [in]           int       nShowCmd
-);
-```
-
-```CMake
-ADD_EXECUTABLE(hello WIN32 main.cpp)
-```
-
-:::
-
-## lib
-
-### STATIC
-
-```CMake
-ADD_LIBRARY(lib_name STATIC
-src.cpp
-)
-```
-
-:::tip 省略してもよい。
-
-```CMake
-ADD_LIBRARY(lib_name src.cpp)
-```
-
-:::
-
-### SHARED
-
-DLLを作る。
-
-```CMake
-ADD_LIBRARY(lib_name SHARED
-src.cpp
-)
-```
-
-### INTERFACE
-
-header only のライブラリやビルド済みのライブラリで、`dll` や `so` のコピーが発生しない場合に使用する。
-
-```CMake
-# Catch2 header only
-add_library(catch INTERFACE)
-target_include_directories(catch INTERFACE ${CMAKE_CURRENT_LIST_DIR})
-target_compile_options(catch INTERFACE /wd4996)
-```
-
-```CMake
-# ASIO header only
-add_library(asio INTERFACE)
-target_include_directories(asio INTERFACE asio/asio/include)
-```
-
-### IMPORTED
+https://cmake.org/cmake/help/latest/command/add_library.html#imported-libraries
 
 ビルド済みのライブラリ。
 ビルド結果をあらわす単一の lib, so, dll を IMPORTED_LOCATION property で指定する。
@@ -107,6 +35,11 @@ set_target_properties( lib_gmath PROPERTIES IMPORTED_LOCATION
                        ${lib_build_DIR}/${ANDROID_ABI}/lib_gmath.a )
 include_directories( ${lib_src_DIR}/include ) # target_include_directories を回避しているぽい
 ```
+
+:::
+
+:::tip RELEASE build しかないとき
+DEBUG にも Rlease と同じものを指定してしまう。
 :::
 
 #### property: INTERFACE_INCLUDE_DIRECTORIES
@@ -140,7 +73,7 @@ target_link_libraries の代替
              $ENV{VULKAN_SDK}/Lib/glslangd.lib)
 ```
 
-:::danger `set_target_properties` called with incorrect number of arguments. 
+:::danger `set_target_properties` called with incorrect number of arguments.
 
 set_target_properties は property が複数とは言ったが、property の値が複数とは言っていない。
 値が複数のときは set_property ならできた。
@@ -149,7 +82,7 @@ set_target_properties は property が複数とは言ったが、property の値
   # set_target_properties called with incorrect number of arguments
   set_target_properties(
     ${TARGET_NAME}
-    PROPERTIES INTERFACE_LINK_LIBRARIES 
+    PROPERTIES INTERFACE_LINK_LIBRARIES
                $ENV{VULKAN_SDK}/Lib/shaderc_utild.lib
                $ENV{VULKAN_SDK}/Lib/SPIRV-Toolsd.lib
                $ENV{VULKAN_SDK}/Lib/SPIRV-Tools-optd.lib
@@ -157,26 +90,3 @@ set_target_properties は property が複数とは言ったが、property の値
 ```
 
 :::
-
-## source
-
-### target_source
-
-`add_executable`, `add_library` に対してあとからソースを追加する。
-
-```CMake
-target_sources(glfw PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/glfw_config.h")
-```
-
-### glob
-
-変数にソースを格納する
-
-```CMake
-FILE(GLOB SRC
-    *.cpp
-    *.h
-)
-
-ADD_EXECUTABLE(hello ${SRC})
-```

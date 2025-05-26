@@ -1,4 +1,4 @@
-# Minimal
+# Get started
 
 ## SOURCE_DIR と BUILD_DIR
 
@@ -10,7 +10,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### SOURCE_DIR
 
-[/cmakelists/variables](/docs/cmakelists/variables)
+[/variables/variables](/docs/variables)
 
 トップレベルの `CMakeLists.txt` のあるフォルダ。
 コマンドラインの `-S` 引き数。
@@ -18,7 +18,7 @@ $ cmake [<options>] -S <path-to-source> -B <path-to-build> -G Ninja -DCMAKE_BUIL
 
 ### BUILD_DIR
 
-[/cmakelists/variables](/docs/cmakelists/variables)
+[/variables/variables](/docs/variables)
 
 一時ファイルやビルドファイルを展開するフォルダ
 コマンドラインの `-B` 引き数。
@@ -67,7 +67,7 @@ SET(hoge x)
 ADD_EXECUTABLE(hello WIN32 ${SRC}) # WIN32
 
 TARGET_LINK_LIBRARIES(EXE_NAME PRIVATE LIB_NAME) # PRIVATE
-````
+```
 
 ## 変数
 
@@ -86,7 +86,7 @@ ${SRC}
 # ${PROJECT_NAME}
 # ${CMAKE_CURRENT_LISTS_DIR}
 # のような自動定義の変数も同様
-````
+```
 
 ## 環境変数
 

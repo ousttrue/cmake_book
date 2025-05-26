@@ -1,0 +1,3 @@
+```cmake
+set(CMAKE_POLICY_DEFAULT_CMP0148 OLD)
+```

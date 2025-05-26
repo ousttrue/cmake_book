@@ -17,24 +17,46 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
   tutorialSidebar: [
     "index",
+    "get_started",
     "commandline",
     {
       type: "category",
-      label: "Target",
+      label: "Targets",
       items: [
-        "basic/minimal",
-        "basic/target",
-        "basic/compile",
-        "basic/link",
-        "basic/properties",
-        "basic/custom_target",
+        {
+          type: "category",
+          label: "type",
+          items: [
+            "targets/executable",
+            "targets/static_library",
+            "targets/shared_library",
+            "targets/headeronly_library",
+            "targets/prebuilt_library",
+          ],
+        },
+        {
+          type: "category",
+          label: "config",
+          items: [
+            "targets/source",
+            "targets/compile",
+            "targets/link",
+            "targets/properties",
+            "targets/custom_target",
+            "targets/public_private",
+          ],
+        },
       ],
+    },
+    {
+      type: "category",
+      label: "Variables",
+      items: ["variables/variables", "variables/cache"],
     },
     {
       type: "category",
       label: "CmakeLists",
       items: [
-        "cmakelists/variables",
         "cmakelists/if",
         "cmakelists/subdirs",
         "cmakelists/generator_expressions",
@@ -59,8 +81,8 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Tips",
       items: [
-        "other/gitignore",
         "other/clangd",
+        "other/gitignore",
         "other/vscode",
         "other/vswhere",
         "other/android_ndk",

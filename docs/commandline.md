@@ -2,7 +2,7 @@
 
 configure, build, install の 3 step. install は使わないことも多い。
 
-## configure
+## configure step
 
 ```
 $ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -31,14 +31,14 @@ $ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
 昔は、レジストリーを参照したりする。
 
-| generator                           | build時configure |                                              |
-| ----------------------------------- | ---------------- | -------------------------------------------- |
-| `-G "Visual Studio 15 2017 Win64"`  | 〇               |                                              |
-| `-G "Visual Studio 16 2019" -A x64` | 〇               | `-A` が分かれた                              |
-| `-G Ninja`                          |                  | Ninja 使うコンパイラをどうやって決めるのか？ |
-| `-G "Unix Makefiles"`               |                  |                                              |
+| generator                           | build時configure |                                                                   |
+| ----------------------------------- | ---------------- | ----------------------------------------------------------------- |
+| `-G "Visual Studio 15 2017 Win64"`  | 〇               | `compile_commands.json` が生成できない?。cland が使えないような。 |
+| `-G "Visual Studio 16 2019" -A x64` | 〇               | `-A` が分かれた                                                   |
+| `-G Ninja`                          |                  | msvc でも `compile_commands.json` のために使う今日この頃          |
+| `-G "Unix Makefiles"`               |                  | ほぼ使ったことがない。                                            |
 
-## build
+## build step
 
 ```
 $ cmake --build build
@@ -53,7 +53,7 @@ $ cmake --build build --config Release
 
 :::
 
-## install
+## install step
 
 ```
 $ cmake --install build --prefix DST_DIRECTORY
@@ -65,4 +65,5 @@ $ cmake --install build --prefix DST_DIRECTORY
 ```
 $ cmake --install build --config Release --prefix DST_DIRECTORY
 ```
+
 :::
