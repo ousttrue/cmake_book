@@ -38,7 +38,6 @@ const sidebars: SidebarsConfig = {
         "cmakelists/if",
         "cmakelists/subdirs",
         "cmakelists/generator_expressions",
-        "cmakelists/fetch_content",
         "cmakelists/find_package",
         "cmakelists/output",
         "cmakelists/source_group",
@@ -46,8 +45,9 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Libs",
+      label: "FetchContent",
       items: [
+        "libs/fetch_content",
         "libs/zlib",
         "libs/stb",
         "libs/glfw",
