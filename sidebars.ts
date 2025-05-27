@@ -75,6 +75,7 @@ const sidebars: SidebarsConfig = {
         "libs/glfw",
         "libs/ktx",
         "libs/openxr",
+        "libs/gst",
       ],
     },
     {
