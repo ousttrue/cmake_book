@@ -76,6 +76,7 @@ const sidebars: SidebarsConfig = {
         "libs/ktx",
         "libs/openxr",
         "libs/gst",
+        "libs/nlohmann_json",
       ],
     },
     {
