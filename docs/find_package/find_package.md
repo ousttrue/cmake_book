@@ -19,3 +19,13 @@ add_library(boost INTERFACE)
 target_include_directories(
   boost INTERFACE ${CMAKE_CURRENT_LIST_DIR}/../include/boost-1_78)
 ```
+
+
+https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search-procedure
+
+# config mode
+
+https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search-procedure
+
+- https://theolizer.com/cpp-school3/cpp-school3-10/
+

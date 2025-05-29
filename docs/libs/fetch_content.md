@@ -7,3 +7,9 @@ Windows では find_package よりもこっちの方が分かりやすい。
 ```cmake
 include(FetchContent)
 ```
+
+:::tip
+https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_TRY_FIND_PACKAGE_MODE
+
+find_packge して、無かったら fetch_content する?
+:::

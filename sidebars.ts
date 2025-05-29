@@ -60,9 +60,18 @@ const sidebars: SidebarsConfig = {
         "cmakelists/if",
         "cmakelists/subdirs",
         "cmakelists/generator_expressions",
-        "cmakelists/find_package",
         "cmakelists/output",
         "cmakelists/source_group",
+      ],
+    },
+    {
+      type: "category",
+      label: "find_package",
+      items: [
+        "find_package/find_package",
+        "find_package/boost",
+        "find_package/vulkan",
+        "find_package/pkg-config",
       ],
     },
     {
