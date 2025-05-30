@@ -78,6 +78,7 @@ const sidebars: SidebarsConfig = {
         "libs/vulkan",
         "libs/boost",
         "libs/pkg-config",
+        "libs/nlohmann_json",
       ],
     },
     {
