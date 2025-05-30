@@ -1,8 +1,39 @@
 # Commandline
 
+## 概念
+
+### SOURCE_DIR
+
+[/variables/variables](/docs/variables)
+
+トップレベルの `CMakeLists.txt` のあるフォルダ。
+コマンドラインの `-S` 引き数。
+`${CMAKE_SOURCE_DIR}`
+
+### BUILD_DIR
+
+[/variables/variables](/docs/variables)
+
+一時ファイルやビルドファイルを展開するフォルダ
+コマンドラインの `-B` 引き数。
+`${CMAKE_BUILD_DIR}`
+
+## BuildType
+
+https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
+
+`-DCMAKE_BUILD_TYPE=Release`
+
+- Debug(default)
+- Release
+- RelWithDebInfo
+- MinSizeRel
+
+## steps
+
 configure, build, install の 3 step. install は使わないことも多い。
 
-## configure step
+### configure step
 
 ```
 $ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -17,14 +48,7 @@ $ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
 :::
 
-### BuildType
-
-- Debug(default)
-- Release
-- MinSizeRel
-- RelWithDebInfo
-
-### Generator
+#### Generator
 
 システムにインストールされている `VisualStudio` を検出してバージョンを特定するには、
 [/other/vswhere](/docs/other/vswhere), [/other/python](/docs/other/python) を参照。
@@ -38,7 +62,7 @@ $ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 | `-G Ninja`                          |                  | msvc でも `compile_commands.json` のために使う今日この頃          |
 | `-G "Unix Makefiles"`               |                  | ほぼ使ったことがない。                                            |
 
-## build step
+### build step
 
 ```
 $ cmake --build build
@@ -53,7 +77,7 @@ $ cmake --build build --config Release
 
 :::
 
-## install step
+### install step
 
 ```
 $ cmake --install build --prefix DST_DIRECTORY

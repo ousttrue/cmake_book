@@ -25,3 +25,23 @@ endif()
 # target
 add_executable(${PROJECT_NAME} main.cpp)
 ```
+
+### CMake のコマンド(関数名)に大文字小文字の区別はない
+
+```cmake
+set(hoge x)
+
+# 同じ
+
+SET(hoge x)
+```
+
+### 引数(定数)の大文字小文字の区別はある
+
+```cmake
+# Win32 はだめ
+ADD_EXECUTABLE(hello WIN32 ${SRC})
+
+# Private はだめ
+TARGET_LINK_LIBRARIES(EXE_NAME PRIVATE LIB_NAME)
+```

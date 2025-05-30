@@ -17,7 +17,6 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
   tutorialSidebar: [
     "index",
-    "get_started",
     "commandline",
     {
       type: "category",
@@ -66,18 +65,9 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "find_package",
+      label: "Libs",
       items: [
-        "find_package/find_package",
-        "find_package/boost",
-        "find_package/vulkan",
-        "find_package/pkg-config",
-      ],
-    },
-    {
-      type: "category",
-      label: "FetchContent",
-      items: [
+        "libs/find_package",
         "libs/fetch_content",
         "libs/zlib",
         "libs/stb",
@@ -85,6 +75,9 @@ const sidebars: SidebarsConfig = {
         "libs/ktx",
         "libs/openxr",
         "libs/gst",
+        "libs/vulkan",
+        "libs/boost",
+        "libs/pkg-config",
       ],
     },
     {
