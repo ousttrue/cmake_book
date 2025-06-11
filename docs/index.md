@@ -26,6 +26,25 @@ endif()
 add_executable(${PROJECT_NAME} main.cpp)
 ```
 
+:::tip ./vscode/settings.json
+
+```json
+{
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--header-insertion=never",
+        "--clang-tidy",
+        "--enable-config",
+    ],
+    "cmake.generator": "Ninja",
+    "cmake.configureArgs": [
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    ],
+}
+```
+
+:::
+
 ### CMake のコマンド(関数名)に大文字小文字の区別はない
 
 ```cmake
