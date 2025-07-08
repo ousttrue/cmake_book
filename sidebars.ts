@@ -74,6 +74,7 @@ const sidebars: SidebarsConfig = {
         "libs/zlib",
         "libs/stb",
         "libs/glfw",
+        "libs/glew",
         "libs/ktx",
         "libs/openxr",
         "libs/gst",
