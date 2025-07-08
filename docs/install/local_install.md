@@ -72,3 +72,7 @@ install(
 ```cmake title="CMakeLists.txt"
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/prefix)
 ```
+# reference
+
+- neovim
+
