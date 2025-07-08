@@ -17,6 +17,11 @@ if(NOT PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     OUTPUT .gitignore
     CONTENT "*")
 endif()
+
+# Release to ../prefix
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_LIST_DIR}/../prefix)
+
 # for prefix/.gitignore
 file(
   GENERATE
@@ -46,7 +51,7 @@ install(
 ```
 
 ```sh
-> cmake -S .\deps\ -B build_deps -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$(pwd)/prefix"
+> cmake -S .\deps\ -B build_deps -G Ninja
 > cmake --build .\build_deps\
 > cmake --install .\build_deps\
 ```
