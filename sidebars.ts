@@ -69,6 +69,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "libs/find_package",
         "libs/installing",
+        "libs/local_install",
         "libs/fetch_content",
         "libs/zlib",
         "libs/stb",
