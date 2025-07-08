@@ -38,7 +38,7 @@ FetchContent_MakeAvailable(zlib)
 #
 # zlib install
 #
-" for "INTERFACE_INCLUDE_DIRECTORIES property contains path"
+# for "INTERFACE_INCLUDE_DIRECTORIES property contains path"
 # https://stackoverflow.com/questions/25676277/cmake-target-include-directories-prints-an-error-when-i-try-to-add-the-source
 set_target_properties(zlib PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "")
 target_include_directories(zlib PUBLIC $<BUILD_INTERFACE:${zlib_SOURCE_DIR}>
