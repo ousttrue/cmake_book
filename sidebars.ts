@@ -68,6 +68,7 @@ const sidebars: SidebarsConfig = {
       label: "Libs",
       items: [
         "libs/find_package",
+        "libs/installing",
         "libs/fetch_content",
         "libs/zlib",
         "libs/stb",
@@ -79,6 +80,7 @@ const sidebars: SidebarsConfig = {
         "libs/boost",
         "libs/pkg-config",
         "libs/nlohmann_json",
+        "libs/ssl",
       ],
     },
     {

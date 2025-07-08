@@ -7,3 +7,9 @@ set_target_properties(
   PROPERTIES INTERFACE_INCLUDE_DIRECTORIES $ENV{VULKAN_SDK}/Include
              IMPORTED_LOCATION $ENV{VULKAN_SDK}/Lib/vulkan-1.lib)
 ```
+
+https://cmake.org/cmake/help/latest/module/FindVulkan.html
+
+```cmake
+
+```
