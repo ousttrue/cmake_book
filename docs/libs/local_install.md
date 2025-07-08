@@ -67,3 +67,8 @@ install(
 .\prefix\share\pkgconfig\zlib.pc 
 ```
 
+## use
+
+```cmake title="CMakeLists.txt"
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/prefix)
+```
