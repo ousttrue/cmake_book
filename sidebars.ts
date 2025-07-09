@@ -88,8 +88,9 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Install",
       items: [
-        "install/local_install",
         "install/header",
+        "install/export",
+        "install/local_install",
       ]
     },
     {
