@@ -87,7 +87,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Install",
-      link: { type: "doc", id: "install/" },
+      link: { type: "doc", id: "install/index" },
       items: [
         "install/header",
         "install/export",
