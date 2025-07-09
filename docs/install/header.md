@@ -1,5 +1,34 @@
 # install header
 
+## PUBLIC_HEADER
+
+https://stackoverflow.com/questions/10487256/cmake-how-to-properly-copy-static-librarys-header-file-into-usr-include
+
+```cmake
+project(myproject)
+
+add_library(mylib some.c another.c)
+set_target_properties(mylib PROPERTIES PUBLIC_HEADER "some.h;another.h")
+INSTALL(TARGETS mylib
+        LIBRARY DESTINATION some/libpath
+        PUBLIC_HEADER DESTINATION some/includepath
+)
+```
+
+## EXPORT FILE_SET
+
+https://discourse.cmake.org/t/how-to-not-install-header-sets-of-private-dependencies/11259
+
+## DIRECTORY
+
+```cmake
+install(DIRECTORY "${CMAKE_SOURCE_DIR}/" # source directory
+        DESTINATION "include" # target directory
+        FILES_MATCHING # install only matched files
+        PATTERN "*.h" # select header files
+)
+```
+
 ## INTERFACE_INCLUDE_DIRECTORIES
 
 - https://cmake.org/cmake/help/latest/prop_tgt/INTERFACE_INCLUDE_DIRECTORIES.html
