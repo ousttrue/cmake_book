@@ -1,6 +1,6 @@
 # FetchContent
 
-Windows では find_package よりもこっちの方が分かりやすい。
+zip, tar などを Download して展開する、もしくは git clne などする。
 
 - [cmake で依存ライブラリをダウンロードする #CMake - Qiita](https://qiita.com/ousttrue/items/4fa7a786a6c51e9f11f0)
 
