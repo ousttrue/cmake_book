@@ -106,6 +106,7 @@ const sidebars: SidebarsConfig = {
         "other/qt6",
         "other/python",
         "other/blender",
+        "other/copy_dll",
       ],
     },
   ],
