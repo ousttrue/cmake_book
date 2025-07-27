@@ -91,18 +91,20 @@ const sidebars: SidebarsConfig = {
         "find_package/header",
         "find_package/export",
         "find_package/local_install",
-      ]
+      ],
     },
     {
       type: "category",
       label: "Tips",
       items: [
+        "other/formatter",
         "other/clangd",
         "other/gitignore",
         "other/vscode",
         "other/vswhere",
         "other/android_ndk",
         "other/vcpkg",
+        "other/qt5",
         "other/qt6",
         "other/python",
         "other/blender",
