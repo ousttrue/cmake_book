@@ -11,11 +11,11 @@ include(FetchContent)
 :::tip
 https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_TRY_FIND_PACKAGE_MODE
 
-find_packge して、無かったら fetch_content する?
+find_packge して、無かったら `fetch_content` する?
 :::
 
 :::tip Compatibility with CMake < 3.5 has been removed from CMake
-cmake 4.0 で cmake<3.5 がエラーになる。
+cmake 4.0 で `cmake<3.5` がエラーになる。
 FetchContent する project の表記が古い場合には以下のようにして回避できる。
 
 ```cmake
