@@ -72,6 +72,7 @@ const sidebars: SidebarsConfig = {
         "fetch_content/stb",
         "fetch_content/glfw",
         "fetch_content/glew",
+        "fetch_content/glm",
         "fetch_content/ktx",
         "fetch_content/openxr",
         "fetch_content/gst",
