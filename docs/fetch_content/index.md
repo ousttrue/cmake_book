@@ -1,11 +1,21 @@
 # FetchContent
 
-zip, tar などを Download して展開する、もしくは git clne などする。
+zip, tar などを Download して展開する、もしくは git clone などする。
 
 - [cmake で依存ライブラリをダウンロードする #CMake - Qiita](https://qiita.com/ousttrue/items/4fa7a786a6c51e9f11f0)
 
 ```cmake
 include(FetchContent)
+
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+# for
+# CMake Error at build/_deps/xxx-src/CMakeLists.txt:1 (cmake_minimum_required):
+#  Compatibility with CMake < 3.5 has been removed from CMake.
+
+set(CMAKE_POLICY_VERSION_MINIMUM 3.10)
+# for
+# CMake Deprecation Warning at build/_deps/xxx-src/CMakeLists.txt:1 (cmake_minimum_required):
+#   Compatibility with CMake < 3.10 will be removed from a future version of CMake.
 ```
 
 :::tip
