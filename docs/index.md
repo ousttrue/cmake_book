@@ -25,7 +25,8 @@ if(NOT PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
 endif()
 
 # target
-add_executable(${PROJECT_NAME} main.cpp)
+set(TARGET_NAME ${PROJECT_NAME})
+add_executable(${TARGET_NAME} main.cpp)
 ```
 
 :::tip ./vscode/settings.json
