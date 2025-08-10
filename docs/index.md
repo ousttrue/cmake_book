@@ -33,20 +33,42 @@ add_executable(${TARGET_NAME} main.cpp)
 
 ```json
 {
-    "clangd.arguments": [
-        "--compile-commands-dir=${workspaceFolder}/build",
-        "--header-insertion=never",
-        "--clang-tidy",
-        "--enable-config",
-    ],
-    "cmake.generator": "Ninja",
-    "cmake.configureArgs": [
-        "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
-    ],
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/build",
+    "--header-insertion=never",
+    "--clang-tidy",
+    "--enable-config"
+  ],
+  "cmake.generator": "Ninja",
+  "cmake.configureArgs": ["-DCMAKE_EXPORT_COMPILE_COMMANDS=1"]
 }
 ```
 
 :::
+
+## CMAKE_POLICY_VERSION_MINIMUM
+
+:::tip Compatibility with CMake < 3.5 has been removed from CMake
+cmake 4.0 で `cmake<3.5` がエラーになる。
+FetchContent する project の表記が古い場合には以下のようにして回避できる。
+
+```cmake
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+# for
+# CMake Error at build/_deps/xxx-src/CMakeLists.txt:1 (cmake_minimum_required):
+#  Compatibility with CMake < 3.5 has been removed from CMake.
+```
+
+:::
+
+いずれ `3.10` も
+
+```cmake
+set(CMAKE_POLICY_VERSION_MINIMUM 3.10)
+# for
+# CMake Deprecation Warning at build/_deps/xxx-src/CMakeLists.txt:1 (cmake_minimum_required):
+#   Compatibility with CMake < 3.10 will be removed from a future version of CMake.
+```
 
 ### CMake のコマンド(関数名)に大文字小文字の区別はない
 

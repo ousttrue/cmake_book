@@ -6,34 +6,33 @@ zip, tar などを Download して展開する、もしくは git clone など�
 
 ```cmake
 include(FetchContent)
-
-set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
-# for
-# CMake Error at build/_deps/xxx-src/CMakeLists.txt:1 (cmake_minimum_required):
-#  Compatibility with CMake < 3.5 has been removed from CMake.
-
-set(CMAKE_POLICY_VERSION_MINIMUM 3.10)
-# for
-# CMake Deprecation Warning at build/_deps/xxx-src/CMakeLists.txt:1 (cmake_minimum_required):
-#   Compatibility with CMake < 3.10 will be removed from a future version of CMake.
 ```
+
+## CMakeLists.txt がある場合
+
+### FetchContent_MakeAvailable
+
+```cmake
+FetchContent_Declare(zlib URL https://zlib.net/zlib-1.3.1.tar.gz)
+FetchContent_MakeAvailable(zlib)
+```
+
+## CMakeLists.txt が無い場合
+
+### FetchContent_Populate
+
+```cmake
+FetchContent_Populate(
+  stb URL https://github.com/nothings/stb/archive/refs/heads/master.zip)
+add_library(stb INTERFACE)
+target_include_directories(stb INTERFACE ${stb_SOURCE_DIR})
+target_compile_definitions(stb INTERFACE STB_IMAGE_IMPLEMENTATION)
+```
+
+## その他
 
 :::tip
 https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_TRY_FIND_PACKAGE_MODE
 
 find_packge して、無かったら `fetch_content` する?
-:::
-
-:::tip Compatibility with CMake < 3.5 has been removed from CMake
-cmake 4.0 で `cmake<3.5` がエラーになる。
-FetchContent する project の表記が古い場合には以下のようにして回避できる。
-
-```cmake
-FetchContent_Declare(
-  plog URL https://github.com/SergiusTheBest/plog/archive/refs/tags/1.1.10.zip)
-
-set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
-FetchContent_MakeAvailable(plog)
-```
-
 :::
