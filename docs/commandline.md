@@ -29,6 +29,20 @@ https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
 - RelWithDebInfo
 - MinSizeRel
 
+- [CMAKE_BUILD_TYPEのUPPER CASEにご用心 #CMake - Qiita](https://qiita.com/KRiver1/items/4b7ad90168dfb4aedde6)
+
+```
+  is not able to compile a simple test program.
+
+    lld-link: error: <root>: undefined symbol: mainCRTStartup
+    clang: error: linker command failed with exit code 1 (use -v to see invocation)
+    ninja: build stopped: subcommand failed.
+```
+
+`cmake-4.0.1` なぜか `-DCMAKE_BUILD_TYPE=Release` を `-DCMAKE_BUILD_TYPE=RELEASE` にしたらなおった。
+
+compiler は `C:\Program Files\LLVM\bin\clang.exe`
+
 ## steps
 
 configure, build, install の 3 step. install は使わないことも多い。
