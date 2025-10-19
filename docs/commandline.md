@@ -4,19 +4,28 @@
 
 ### SOURCE_DIR
 
-[/variables/variables](/docs/variables)
-
 トップレベルの `CMakeLists.txt` のあるフォルダ。
 コマンドラインの `-S` 引き数。
+
 `${CMAKE_SOURCE_DIR}`
 
 ### BUILD_DIR
 
-[/variables/variables](/docs/variables)
-
 一時ファイルやビルドファイルを展開するフォルダ
 コマンドラインの `-B` 引き数。
+
 `${CMAKE_BUILD_DIR}`
+
+### INSTALL_PREFIX
+
+https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html
+
+`cmake --install` のインストール先となるフォルダ。
+コマンドラインの `-DCMAKE_INSTALL_PREFIX=prefix` のように指定する。
+
+`${CMAKE_INSTALL_PREFIX}`
+
+`CMAKE_SYSTEM_PREFIX_PATH` に追加されて `find_package` などの search path ともなる。
 
 ## BuildType
 
@@ -40,8 +49,6 @@ https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
 ```
 
 `cmake-4.0.1` なぜか `-DCMAKE_BUILD_TYPE=Release` を `-DCMAKE_BUILD_TYPE=RELEASE` にしたらなおった。
-
-compiler は `C:\Program Files\LLVM\bin\clang.exe`
 
 ## steps
 
@@ -82,8 +89,9 @@ $ cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 $ cmake --build build
 ```
 
-:::tip config は `VisualStudio` では指定できる。
-そうでなければ configure step で `-DCMAKE_BUILD_TYPE=Release` と指定する。
+:::tip `BUILD_TYPE` は `VisualStudio` ではこの step でも指定できる。
+何故なら `MSBuild` に `BUILD_TYPE` 切り替え機能があるので。
+`vc + Ninja` の時はその限りではない。
 
 ```
 $ cmake --build build --config Release
@@ -94,14 +102,22 @@ $ cmake --build build --config Release
 ### install step
 
 ```
-$ cmake --install build --prefix DST_DIRECTORY
+$ cmake --install build
 ```
 
-:::tip config は `VisualStudio` では指定できる。
-そうでなければ configure に `-DCMAKE_BUILD_TYPE=Release` と指定する。
+:::tip `BUILD_TYPE` は `VisualStudio` ではこの step でも指定できる。
+何故なら `MSBuild` に `BUILD_TYPE` 切り替え機能があるので。
+`vc + Ninja` の時はその限りではない。
 
 ```
-$ cmake --install build --config Release --prefix DST_DIRECTORY
+$ cmake --install build --config Release --prefix INSTALL_PREFIX
 ```
+
+:::
+
+:::tip prefix は configure step で `-DCMAKE_INSTALL_PREFIX` により指定しないと効かないかもしれない。
+
+- windows のデフォルトは、 `C:/Program Files/RPOJECT_NAME`
+- unix デフォルトは、 `/usr/local`
 
 :::
