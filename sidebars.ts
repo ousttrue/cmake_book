@@ -81,6 +81,7 @@ const sidebars: SidebarsConfig = {
         "fetch_content/pkg-config",
         "fetch_content/nlohmann_json",
         "fetch_content/ssl",
+        "fetch_content/opencv",
       ],
     },
     {

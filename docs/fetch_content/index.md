@@ -1,5 +1,7 @@
 # FetchContent
 
+https://cmake.org/cmake/help/latest/module/FetchContent.html
+
 zip, tar などを Download して展開する、もしくは git clone などする。
 
 - [cmake で依存ライブラリをダウンロードする #CMake - Qiita](https://qiita.com/ousttrue/items/4fa7a786a6c51e9f11f0)
@@ -16,6 +18,18 @@ include(FetchContent)
 FetchContent_Declare(zlib URL https://zlib.net/zlib-1.3.1.tar.gz)
 FetchContent_MakeAvailable(zlib)
 ```
+
+:::note
+subfolder は SYSTEM で対応できるぽい？
+
+```cmake
+FetchContent_Declare(name 
+    URL https://host/archiv.zip
+    SYSTEM subfolder/to/cmakelists
+)
+```
+
+:::
 
 ## CMakeLists.txt が無い場合
 
@@ -50,5 +64,5 @@ FetchContent_Declare(
 :::tip
 https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_TRY_FIND_PACKAGE_MODE
 
-find_packge して、無かったら `fetch_content` する?
+find_packge して、無かったら `fetch_content` するには？
 :::
