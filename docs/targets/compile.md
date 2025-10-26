@@ -10,7 +10,7 @@ https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html#properties-on
 対して `TARGET_INCLUDE_DIRECTORIES`, `TARGET_COMPILE_DEFINITIONS`, `TARGET_COMPILE_OPTIONS` は、 `add_executable`, `add_library` で作成した `target` に対して設定する。
 
 | directory           | target                     |
-|---------------------|----------------------------|
+| ------------------- | -------------------------- |
 | ADD_COMPILE_OPTIONS | TARGET_COMPILE_OPTIONS     |
 | INCLUDE_DIRECTORIES | TARGET_INCLUDE_DIRECTORIES |
 | ADD_DEFINITIONS     | TARGET_COMPILE_DEFINITIONS |
@@ -49,8 +49,8 @@ endif()
 ```CMake
 TARGET_COMPILE_OPTIONS(${TARGET_NAME}
 PRIVATE
-    /wd4251 
-    /wd4996 
+    /wd4251
+    /wd4996
     /wd4005
 )
 ```
@@ -70,6 +70,10 @@ target
 
 ```CMake
 SET_PROPERTY(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
+```
+
+```CMake
+target_compile_features(${TARGET_NAME} PUBLIC cxx_std_17)
 ```
 
 ## c standard
@@ -94,6 +98,10 @@ TARGET_INCLUDE_DIRECTORIES(HELLO PUBLIC
 )
 ```
 
+```CMake
+target_compile_features(${TARGET_NAME} PUBLIC c_std_99)
+```
+
 ## definitions
 
 ２つのコマンドの `-D` の有無に注意。
@@ -116,7 +124,7 @@ PUBLIC
     USING_GENERATED_CONFIG_H
     $<$<NOT:$<CONFIG:Debug>>:NDEBUG>
     $<$<CONFIG:Debug>:_DEBUG>
-)        
+)
 
 # -Dなし
 TARGET_COMPILE_DEFINITIONS(TARGET PUBLIC
@@ -139,7 +147,7 @@ target_precompile_headers(Nvy PUBLIC
     <dwrite_3.h>
     <shellscalingapi.h>
     <dwmapi.h>
-    
+
     "src/third_party/mpack/mpack.h"
 
     "src/common/dx_helper.h"
