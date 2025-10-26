@@ -31,6 +31,22 @@ target_compile_definitions(stb INTERFACE STB_IMAGE_IMPLEMENTATION)
 
 ## その他
 
+:::warning
+DOWNLOAD_EXTRACT_TIMESTAMP
+
+```cmake
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  DOWNLOAD_EXTRACT_TIMESTAMP ON  # 追加
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+```
+
+[Cmakeにて'The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is not set.'という警告が表示されたことについて #C++ - Qiita](https://qiita.com/kai-tokei/items/ecab1a2c78f8bb3cfe1f)
+
+:::
+
 :::tip
 https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_TRY_FIND_PACKAGE_MODE
 
