@@ -20,13 +20,17 @@ FetchContent_MakeAvailable(zlib)
 ```
 
 :::note
-subfolder は SYSTEM で対応できるぽい？
+subfolder は SOURCE_SUBDIR 
 
 ```cmake
-FetchContent_Declare(name 
-    URL https://host/archiv.zip
-    SYSTEM subfolder/to/cmakelists
+include(FetchContent)
+FetchContent_Declare(
+  protobuf
+  GIT_REPOSITORY https://github.com/protocolbuffers/protobuf.git
+  GIT_TAG        ae50d9b9902526efd6c7a1907d09739f959c6297 # v3.15.0
+  SOURCE_SUBDIR  cmake
 )
+set(protobuf_BUILD_TESTS OFF CACHE INTERNAL "")
 ```
 
 :::
@@ -58,6 +62,16 @@ FetchContent_Declare(
 ```
 
 [Cmakeにて'The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is not set.'という警告が表示されたことについて #C++ - Qiita](https://qiita.com/kai-tokei/items/ecab1a2c78f8bb3cfe1f)
+
+:::
+
+:::danger
+At least one entry of URL is a path
+
+`CMake Error: At least one entry of URL is a path (invalid in a list)
+`
+
+https://stackoverflow.com/questions/74996365/cmake-error-at-least-one-entry-of-url-is-a-path-invalid-in-a-list
 
 :::
 

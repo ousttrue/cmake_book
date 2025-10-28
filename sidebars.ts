@@ -82,6 +82,7 @@ const sidebars: SidebarsConfig = {
         "fetch_content/nlohmann_json",
         "fetch_content/ssl",
         "fetch_content/opencv",
+        "fetch_content/cv_bridge",
       ],
     },
     {
@@ -111,6 +112,17 @@ const sidebars: SidebarsConfig = {
         "other/python",
         "other/blender",
         "other/copy_dll",
+        "other/toolchain",
+      ],
+    },
+    {
+      type: "category",
+      label: "ROS2",
+      link: { type: "doc", id: "ros2/index" },
+      items: [
+        "ros2/pixi",
+        "ros2/colcon",
+        "ros2/ros_api",
       ],
     },
   ],

@@ -1,0 +1,2 @@
+- https://fekir.info/post/toolchain-file-in-cmake/
+- https://fekir.info/post/cmake-msvc-and-ninja/
